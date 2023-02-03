@@ -8,46 +8,57 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 
 ```yaml
-name: violet_blog CI
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
 on:
   push:
-    branches: [ master ] #监听master分支的push事件
+    branches: [ "main" ]
   pull_request:
-    branches: [ master ]
+    branches: [ "main" ]
+
 jobs:
   build:
-    runs-on: ubuntu-latest #指定运行环境为最新的Ubuntu版本
+
+    runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        node-version: [16.14.0] #指定node版本
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }} #使用action安装node环境
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install #安装项目依赖
-    - run: npm run build #build项目
-    - name: ssh scp ssh pipelines #使用市场找到的action来将项目build的产物传到我的服务器
+        cache: 'npm'
+    - name: Install Dependencies
+      run: npm install --legacy-peer-deps
+    - name: Build
+      run: npm run build
+    - name: Deploy to Server ${{ secrets.SERVER_IP }}
       uses: cross-the-world/ssh-scp-ssh-pipelines@latest
       env:
         WELCOME: "ssh scp ssh pipelines"
         LASTSSH: "Doing something after copying"
       with:
-        host: ${{ secrets.LDD_SERVER_IP }} # 服务器的ip
-        user: ${{ secrets.LDD_SERVER_NAME }} # 服务器的账号
-        pass: ${{ secrets.LDD_SERVER_PASSWORD }} # 服务器的密码
+        host: ${{ secrets.SERVER_IP }} # 服务器的ip
+        user: ${{ secrets.SERVER_USERNAME }} # 服务器的账号
+        pass: ${{ secrets.SERVER_PASSWORD }} # 服务器的密码
         connect_timeout: 10s
         first_ssh: | #这部分是在服务器上，传输文件前执行的命令，关闭并删除运行中的旧版本
-          pm2 delete all
-          cd /project/ldd-rms-backend
-          rm -rf dist
+          cd /data/nginx/html
+          rm -rf ./index.html ./index.html.gz ./css ./js
         scp: | #将build生成的文件从GitHub服务器的相应目录，传到我服务器的相应目录
-          ./dist => /project/ldd-rms-backend
-          ./package.json => /project/ldd-rms-backend
-          ./yarn.lock => /project/ldd-rms-backend
+          ./dist => /data/nginx/html
         last_ssh: | #这部分是在服务器上，传输文件后执行的命令，新版本重新安装依赖并运行
-          cd /project/ldd-rms-backend
-          yarn
-          pm2 start ./dist/main.js
+          ls
+          cd ./js
+          ls
+          cd ../css
+          ls
 ```
