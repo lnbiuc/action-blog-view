@@ -40,21 +40,21 @@ jobs:
       run: npm install --legacy-peer-deps
     - name: Build
       run: npm run build
-    - name: Deploy to Server ${{ secrets.SERVER_IP }}
+    - name: Deploy to Server
       uses: cross-the-world/ssh-scp-ssh-pipelines@latest
       env:
         WELCOME: "ssh scp ssh pipelines"
         LASTSSH: "Doing something after copying"
       with:
-        host: ${{ secrets.SERVER_IP }} # 服务器的ip
-        user: ${{ secrets.SERVER_USERNAME }} # 服务器的账号
-        pass: ${{ secrets.SERVER_PASSWORD }} # 服务器的密码
+        host: ${{ secrets.SERVER_IP }}
+        user: ${{ secrets.SERVER_USERNAME }}
+        pass: ${{ secrets.SERVER_PASSWORD }}
         connect_timeout: 10s
-        first_ssh: | #这部分是在服务器上，传输文件前执行的命令，关闭并删除运行中的旧版本
+        first_ssh: |
           cd /data/nginx/html
           rm -rf ./index.html ./index.html.gz ./css ./js
-        scp: | #将build生成的文件从GitHub服务器的相应目录，传到我服务器的相应目录
-          ./dist => /data/nginx/html
-        last_ssh: | #这部分是在服务器上，传输文件后执行的命令，新版本重新安装依赖并运行
+        scp: |
+          ./dist/* => /data/nginx/html
+        last_ssh: |
           ls
 ```
