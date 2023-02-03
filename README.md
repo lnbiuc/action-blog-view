@@ -57,8 +57,4 @@ jobs:
           ./dist => /data/nginx/html
         last_ssh: | #这部分是在服务器上，传输文件后执行的命令，新版本重新安装依赖并运行
           ls
-          cd ./js
-          ls
-          cd ../css
-          ls
 ```
