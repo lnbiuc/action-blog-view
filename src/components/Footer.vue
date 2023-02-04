@@ -3,7 +3,7 @@
         <div class="create">
             <p class="copy"
                style="font-size:90%">
-                <span>Copyright © 2022&nbsp;&nbsp;<span style="color:dodgerblue;cursor: pointer;"
+                <span>Copyright © 2023&nbsp;&nbsp;<span style="color:dodgerblue;cursor: pointer;"
                           @click="this.$router.push('/about')">Violet</span>&nbsp;&nbsp;</span>
                 <span><a href="https://beian.miit.gov.cn/">陕ICP备2021015553号-1</a></span>
             </p>

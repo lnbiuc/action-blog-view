@@ -74,13 +74,13 @@ const router = createRouter({
 });
 router.afterEach((to, from, next) => {
 	if(to.path == '/index' && from.path !== '/') {
-		const p = new Promise((reslove,reject) => {
-			reslove()
+		const p = new Promise((resolve,reject) => {
+			resolve()
 			reject()
 		})
 		p.then(() => {
 			const el = document.getElementById('blogScroll')
-    	window.scroll({ top: el.offsetTop, behavior: 'smooth' })
+    		window.scroll({ top: el.offsetTop})
 		})
 	} else {
 		window.scrollTo({top: 0,left: 0,behavior: "smooth"});

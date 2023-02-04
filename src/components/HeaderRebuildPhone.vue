@@ -15,7 +15,7 @@
                :show-close="false"
                class="drawer"
                close-on-press-escape="true"
-               size="300">
+               size="200">
         <template #header="{ close, titleId, titleClass }">
             <span class="close"
                   @click="visible = false">

@@ -367,7 +367,7 @@ hr {
         color: #fff !important;
     }
 
-    .more,.btn-quicknext ,.el-icon {
+    .el-pager > .el-icon {
         background-color: #0d1117 !important;
     }
 
@@ -375,6 +375,16 @@ hr {
         border: none;
         height: 1px;
         background-color: #30363d;
+    }
+
+    .el-dialog {
+        backdrop-filter: saturate(50%) blur(8px) !important;
+        background: rgba(36, 36, 36, 0.7) !important;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .el-dialog__title {
+        color: #fff !important;
     }
 }
 

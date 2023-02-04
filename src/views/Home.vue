@@ -40,6 +40,8 @@ export default {
         },
         currentChange(current) {
             this.page(current, this.size)
+            const el = document.getElementById('blogScroll')
+            window.scroll({ top: el.offsetTop, behavior: "smooth"})
         },
         page(current, size) {
             const store = homeBlogsStore()

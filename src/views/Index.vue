@@ -2,29 +2,43 @@
     <div class="site">
         <HeaderRebuild v-if="pc"></HeaderRebuild>
         <HeaderRebuildPhone v-if="phone"></HeaderRebuildPhone>
-        <MainImg v-if="$route.name==='home'"></MainImg>
+        <MainImg v-if="$route.name === 'home'"></MainImg>
         <div class="three">
-            <div v-if="$route.name!=='BlogDetail'"
-                 class="left">
+            <div v-if="$route.name !== 'BlogDetail'" class="left">
                 <AnchorLeft />
             </div>
             <div class="middle">
                 <router-view></router-view>
             </div>
-            <div v-if="$route.name!=='BlogDetail'"
-                 class="right">
+            <div v-if="$route.name !== 'BlogDetail'" class="right">
                 <AnchorRight />
             </div>
         </div>
-        <el-backtop :bottom="20"
-                    :right="20"
-                    :visibility-height="500">
+        <el-backtop :bottom="20" :right="20" :visibility-height="500">
             <div class="backTop">
                 <i class="icon paper plane"></i>
             </div>
         </el-backtop>
     </div>
     <Footer></Footer>
+    <el-dialog v-model="dialogJumpVisible" title="Tips">
+        <h2>网站已更换域名至
+            <a @click="jumpToNewDomain">vio.vin</a>
+        </h2>
+        <h4>
+            Changed domain name to
+            <a @click="jumpToNewDomain">vio.vin</a>
+        </h4>
+        <h2>请前往新的域名访问 <a @click="jumpToNewDomain">立即跳转</a>
+        </h2>
+        <h4>
+            Please use the new domain name
+            <a @click="jumpToNewDomain">Immediate jump</a>
+        </h4>
+        <div class="dismiss">
+            <el-button type="primary" @click="cacelDialog">Cancel</el-button>
+        </div>
+    </el-dialog>
 </template>
 
 <script>
@@ -50,6 +64,7 @@ export default {
             pc: true,
             phone: false,
             imgDisplay: true,
+            dialogJumpVisible: false,
         }
     },
     methods: {
@@ -60,9 +75,19 @@ export default {
                 this.pc = false
             }
         },
+        cacelDialog() {
+            this.dialogJumpVisible = false
+        },
+        jumpToNewDomain() {
+            window.location = "https://vio.vin"
+        }
     },
     created() {
-        this.setHeader()
+        this.setHeader();
+        let domain = document.domain;
+        if (domain == "beyondhoriozn.top") {
+            this.dialogJumpVisible = true
+        }
     },
 }
 </script>
@@ -134,6 +159,15 @@ export default {
     justify-content: center;
 }
 
+.dismiss {
+    display: flex;
+    justify-content: flex-end;
+}
+
+a {
+    cursor: pointer;
+}
+
 @media (prefers-color-scheme: dark) {
     .site {
         background-color: #0d1117;
@@ -143,9 +177,14 @@ export default {
         background-color: #0d1117;
         border: 1px solid #0d1117;
     }
+
+    .el-dialog__body > h3,h2,h4 {
+        border-bottom: 0;
+    }
 }
 
 @media screen and (max-width: 1000px) {
+
     .left,
     .right {
         display: none;

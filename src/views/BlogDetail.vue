@@ -257,7 +257,7 @@ export default {
 
     .contnent {
         overflow: hidden !important;
-        margin-right: 10px;
+        margin-right: 2px;
         width: unset;
     }
 
@@ -277,7 +277,7 @@ export default {
 
     .blogTitle {
         font-size: 30px;
-        padding: 0 100px 0;
+        padding: 0 20px 0;
     }
 }
 

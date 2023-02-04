@@ -158,6 +158,7 @@ img {
     top: 15%;
     text-shadow: 1px 1px 2px #17325b;
     line-height: 2;
+    padding: 0 100px;
 }
 
 @keyframes myfirst {
@@ -237,6 +238,7 @@ svg {
     .printContent {
         top: 10vh;
         font-size: 25px;
+        padding: 0 20px;
     }
 
     #s-text {

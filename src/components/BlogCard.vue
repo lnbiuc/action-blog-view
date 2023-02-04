@@ -25,7 +25,7 @@
                     </div>
                     <div class="time">
                         <i class="icon green cloud upload" />&nbsp;
-                        <span v-text="littleTimeStr(blog.releaseTime)"></span>&nbsp;
+                        <span v-text="littleTimeStr(blog.releaseTime)"></span>&nbsp;&nbsp;
                         <i class="icon orange tags" />&nbsp;
                         <span v-for="tag in blog.tagNames"
                               :key="tag.tagId"
@@ -168,7 +168,7 @@ export default {
     color: #fff;
     text-shadow: 1px 1px 2px #0d1117;
     z-index: 1;
-    padding: 100px;
+    padding: 0 50px;
     transition: all 0.3s ease;
 }
 
