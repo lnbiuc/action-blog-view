@@ -123,7 +123,7 @@ export default {
         getArticleByArticleId(this.articleId).then((res) => {
             this.blog = res.data.data
             this.content = mdStrToHTML(this.blog.content)
-            document.title = this.blog.title
+            document.title = "薇尔薇 | " + this.blog.title
             document.description = this.blog.introduction
             this.$nextTick(() => {
                 this.initTocbot()
