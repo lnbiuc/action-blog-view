@@ -45,6 +45,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",
     "autoprefixer": "^10.4.12",
+    "http-server": "^14.1.1",
     "postcss-plugin-px2rem": "^0.8.1",
     "postcss-variable-compress": "^1.2.0",
     "sass": "^1.54.0",
