@@ -3,22 +3,16 @@
         <p class="head">Time Line</p>
         <div class="ui attached segment">
             <div class="timeline">
-                <div v-for="time in times"
-                     :key="time.timeStrings.year"
-                     :class="colorObj[time.timeStrings.month % 5]">
+                <div v-for="time in times" :key="time.timeStrings.year" :class="colorObj[time.timeStrings.month % 5]">
                     <div class="tl-header">
                         <a class="ui large label m-text-500">
                             Y&nbsp;{{ time.timeStrings.year }}&nbsp;M&nbsp;{{ time.timeStrings.month }}
                         </a>
                     </div>
-                    <div v-for="blog in time.articleVos"
-                         :key="blog.articleId"
-                         class="tl-item">
+                    <div v-for="blog in time.articleVos" :key="blog.articleId" class="tl-item">
                         <div class="tl-wrap">
-                            <span class="tl-date"
-                                  v-text="littleTimeStr(blog.releaseTime)"></span>
-                            <a href="javascript:"
-                               @click.prevent="toBlog(blog.articleId)">
+                            <span class="tl-date" v-text="littleTimeStr(blog.releaseTime)"></span>
+                            <a href="javascript:" @click.prevent="toBlog(blog.articleId)">
                                 <div class="ui left pointing label tl-title">
                                     {{ blog.title }}
                                 </div>
@@ -35,9 +29,9 @@
 </template>
 
 <script>
-import {getTimeLineData} from '../axios'
-import AnchorLeft from '../components/AnchorLeft.vue'
-import {timeLineStore} from '../stores/counter'
+import { getTimeLineData } from '../axios';
+import AnchorLeft from '../components/AnchorLeft.vue';
+import { timeLineStore } from '../stores/counter';
 
 export default {
     name: 'TimeLine',
@@ -54,40 +48,42 @@ export default {
                 3: 'tl-purple',
                 4: 'tl-red',
             },
-        }
+        };
     },
     methods: {
         littleTimeStr(str) {
-            var newstring ='Day ' +  str.substring(8, 10)
-            return newstring
+            var newstring = 'Day ' + str.substring(8, 10);
+            return newstring;
         },
         toBlog(articleId) {
             this.$router.push({
                 name: 'BlogDetail',
-                params: {articleId: articleId},
-            })
+                params: { articleId: articleId },
+            });
         },
         getTimeLine() {
-            const store = timeLineStore()
+            const store = timeLineStore();
 
             if (store.times.length > 0) {
-                this.times = store.times
+                this.times = store.times;
             } else {
                 getTimeLineData().then((res) => {
-                    this.times = res.data.data
-                    store.times = res.data.data
-                })
+                    this.times = res.data.data;
+                    store.times = res.data.data;
+                });
             }
         },
     },
     created() {
-        this.getTimeLine()
+        this.getTimeLine();
     },
-}
+};
 </script>
 
 <style scoped>
-.mainContent,.mainContent::before,.mainContent::after {
+.mainContent,
+.mainContent::before,
+.mainContent::after {
     width: 100%;
     padding: 25px 25px;
     border-radius: 7px;
@@ -100,8 +96,7 @@ export default {
 }
 
 .mainContent:hover {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%),
-    0 2px 4px -1px rgba(0, 0, 0, 12%);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.3s ease;
 }
 
@@ -163,7 +158,8 @@ export default {
     text-align: right;
 }
 
-.tl-wrap,.tl-wrap:after {
+.tl-wrap,
+.tl-wrap:after {
     padding: 15px 0 10px 20px;
     margin-left: 6em;
     border-style: solid;
@@ -193,7 +189,8 @@ export default {
     transition: all 0.2s ease;
 }
 
-.tl-title,.tl-title::after {
+.tl-title,
+.tl-title::after {
     margin-left: 0 !important;
     letter-spacing: 0.3px !important;
     font-size: 15px !important;

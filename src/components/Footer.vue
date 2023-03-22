@@ -1,16 +1,25 @@
 <template>
     <footer>
         <div class="create">
-            <p class="copy"
-               style="font-size:90%">
-                <span>Copyright © 2023&nbsp;&nbsp;<span style="color:dodgerblue;cursor: pointer;"
-                          @click="this.$router.push('/about')">Violet</span>&nbsp;&nbsp;</span>
+            <p class="copy" style="font-size: 90%">
+                <span
+                    >Copyright © 2023&nbsp;&nbsp;<span
+                        style="color: dodgerblue; cursor: pointer"
+                        @click="this.$router.push('/about')"
+                        >Violet</span
+                    >&nbsp;&nbsp;</span
+                >
                 <span><a href="https://beian.miit.gov.cn/">陕ICP备2021015553号-1</a></span>
             </p>
-            <p class="power"
-               style="font-size:70%">
-                <span>Powered by <a href="https://spring.io/projects/spring-boot">Spring Boot</a> & <a href="https://cn.vuejs.org/">Vue3</a>,</span>
-                <span>UI by <a href="https://semantic-ui.com/">SemanticUI</a> & <a href="https://element-plus.org/zh-CN/#/zh-CN">ElementUI</a></span>
+            <p class="power" style="font-size: 70%">
+                <span
+                    >Powered by <a href="https://spring.io/projects/spring-boot">Spring Boot</a> &
+                    <a href="https://cn.vuejs.org/">Vue3</a>,</span
+                >
+                <span
+                    >UI by <a href="https://semantic-ui.com/">SemanticUI</a> &
+                    <a href="https://element-plus.org/zh-CN/#/zh-CN">ElementUI</a></span
+                >
             </p>
         </div>
     </footer>
@@ -19,7 +28,7 @@
 <script>
 export default {
     name: 'Footer',
-}
+};
 </script>
 
 <style scoped>

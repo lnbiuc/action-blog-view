@@ -1,79 +1,96 @@
 <template>
     <div class="occupancy"></div>
     <div class="head">
-        <div class="logo"><a style="color: #6a67ce"
-               @click="index(1)">Violet</a></div>
+        <div class="logo"><a style="color: #6a67ce" @click="index(1)">Violet</a></div>
         <div class="links">
-            <span class="link"
-                  @click="visible = true">
+            <span class="link" @click="visible = true">
                 <i class="icon outdent" />
             </span>
         </div>
     </div>
 
-    <el-drawer v-model="visible"
-               :show-close="false"
-               class="drawer"
-               close-on-press-escape="true"
-               size="200">
+    <el-drawer v-model="visible" :show-close="false" class="drawer" close-on-press-escape="true" size="200">
         <template #header="{ close, titleId, titleClass }">
-            <span class="close"
-                  @click="visible = false">
-                <i class="icon indent" />&nbsp;&nbsp;&nbsp;&nbsp;Cloes
-            </span>
+            <span class="close" @click="visible = false"> <i class="icon indent" />&nbsp;&nbsp;&nbsp;&nbsp;Cloes </span>
         </template>
         <div class="navs">
-            <span class="nav"
-                  @click="
-					index(1);
-					visible = false;
-				">
+            <span
+                class="nav"
+                @click="
+                    index(1);
+                    visible = false;
+                "
+            >
                 <i class="icon home" />
-                Index</span>
-            <span class="nav"
-                  @click="
-					index(2);
-					visible = false;
-				">
+                Index</span
+            >
+            <span
+                class="nav"
+                @click="
+                    index(2);
+                    visible = false;
+                "
+            >
                 <i class="icon archive" />
-                Time Line</span>
-            <span class="nav"
-                  @click="
-					index(3);
-					visible = false;
-				">
+                Time Line</span
+            >
+            <span
+                class="nav"
+                @click="
+                    index(3);
+                    visible = false;
+                "
+            >
                 <i class="icon bookmark" />
-                Category</span>
-            <span class="nav"
-                  @click="
-					index(6);
-					visible = false;
-				">
+                Category</span
+            >
+            <span
+                class="nav"
+                @click="
+                    index(6);
+                    visible = false;
+                "
+            >
                 <i class="icon comment alternate" />
-                Message</span>
-            <span class="nav"
-                  @click="index(7);visible = false;">
+                Message</span
+            >
+            <span
+                class="nav"
+                @click="
+                    index(7);
+                    visible = false;
+                "
+            >
                 <i class="icon linkify" />
-                Friends</span>
-            <span class="nav"
-                  @click="
-					index(4);
-					visible = false;
-				">
+                Friends</span
+            >
+            <span
+                class="nav"
+                @click="
+                    index(4);
+                    visible = false;
+                "
+            >
                 <i class="icon info" />
-                About</span>
-            <span class="nav"
-                  @click="
-					index(5);
-					visible = false;
-				">
+                About</span
+            >
+            <span
+                class="nav"
+                @click="
+                    index(5);
+                    visible = false;
+                "
+            >
                 <i class="icon search" />
-                Search</span>
-            <span class="nav"
-                  @click="
-					goGithub();
-					visible = false;
-				">
+                Search</span
+            >
+            <span
+                class="nav"
+                @click="
+                    goGithub();
+                    visible = false;
+                "
+            >
                 <i class="icon github" />
                 Github
             </span>
@@ -89,31 +106,31 @@ export default {
         return {
             open: false,
             visible: false,
-        }
+        };
     },
     methods: {
         goGithub() {
-            window.open('https://github.com/lnbiuc')
+            window.open('https://github.com/lnbiuc');
         },
         index(index) {
             if (index === 1) {
-                this.$router.push('/home')
+                this.$router.push('/home');
             } else if (index === 2) {
-                this.$router.push('/timeLine')
+                this.$router.push('/timeLine');
             } else if (index === 3) {
-                this.$router.push('/filing')
+                this.$router.push('/filing');
             } else if (index === 4) {
-                this.$router.push('/about')
+                this.$router.push('/about');
             } else if (index === 5) {
-                this.$router.push('/search')
+                this.$router.push('/search');
             } else if (index === 6) {
-                this.$router.push('/message')
+                this.$router.push('/message');
             } else if (index === 7) {
-                this.$router.push('/friends')
+                this.$router.push('/friends');
             }
         },
     },
-}
+};
 </script>
 
 <style scoped>
@@ -152,7 +169,8 @@ export default {
     flex-direction: column;
 }
 
-.nav,.nav::before {
+.nav,
+.nav::before {
     padding: 10px 10px;
     font-size: 20px;
     display: block;
@@ -173,7 +191,9 @@ export default {
 }
 
 .link,
-.close,.link::after,.close::after {
+.close,
+.link::after,
+.close::after {
     font-size: 25px;
     margin: 0 10px;
     color: #6a67ce;

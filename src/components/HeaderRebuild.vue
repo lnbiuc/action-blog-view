@@ -2,56 +2,58 @@
     <div class="occupancy"></div>
     <div class="head">
         <div class="logo" @click="index(1)">
-            <a style="color: #6a67ce">
-                Violet
-            </a>
+            <a style="color: #6a67ce"> Violet </a>
         </div>
         <div class="navs">
             <div class="nav-div" @click="index(1)">
                 <span class="nav">
-                <i class="icon home" />
-                Index</span>
+                    <i class="icon home" />
+                    Index</span
+                >
             </div>
             <div class="nav-div" @click="index(2)">
                 <span class="nav">
-                <i class="icon archive" />
-                TimeLine</span>
+                    <i class="icon archive" />
+                    TimeLine</span
+                >
             </div>
             <div class="nav-div" @click="index(3)">
                 <span class="nav">
-                <i class="icon bookmark" />
-                Category</span>
+                    <i class="icon bookmark" />
+                    Category</span
+                >
             </div>
             <div class="nav-div" @click="index(6)">
                 <span class="nav">
-                <i class="icon comment alternate" />
-                Message</span>
+                    <i class="icon comment alternate" />
+                    Message</span
+                >
             </div>
             <div class="nav-div" @click="index(7)">
                 <span class="nav">
-                <i class="icon linkify" />
-                Friends</span>
+                    <i class="icon linkify" />
+                    Friends</span
+                >
             </div>
             <div class="nav-div" @click="index(4)">
                 <span class="nav">
-                <i class="icon info" />
-                About</span>
+                    <i class="icon info" />
+                    About</span
+                >
             </div>
         </div>
         <div class="links">
-            <div style="display:flex;flex-direction: row;height: 100%;justify-content: center;">
+            <div style="display: flex; flex-direction: row; height: 100%; justify-content: center">
                 <div class="icons">
-                    <span class="link"
-                        @click="index(5)">
+                    <span class="link" @click="index(5)">
                         <i class="icon search" />
                     </span>
                 </div>
                 <div class="icons">
-                    <span class="link"
-                        @click="goGithub()">
+                    <span class="link" @click="goGithub()">
                         <i class="icon github" />
                     </span>
-            </div>
+                </div>
             </div>
         </div>
     </div>
@@ -62,27 +64,27 @@ export default {
     name: 'HeaderRebuild',
     methods: {
         goGithub() {
-            window.open('https://github.com/lnbiuc')
+            window.open('https://github.com/lnbiuc');
         },
         index(index) {
             if (index === 1) {
-                this.$router.push('/home')
+                this.$router.push('/home');
             } else if (index === 2) {
-                this.$router.push('/timeLine')
+                this.$router.push('/timeLine');
             } else if (index === 3) {
-                this.$router.push('/filing')
+                this.$router.push('/filing');
             } else if (index === 4) {
-                this.$router.push('/about')
+                this.$router.push('/about');
             } else if (index === 5) {
-                this.$router.push('/search')
+                this.$router.push('/search');
             } else if (index === 6) {
-                this.$router.push('/message')
+                this.$router.push('/message');
             } else if (index === 7) {
-                this.$router.push('/friends')
+                this.$router.push('/friends');
             }
         },
     },
-}
+};
 </script>
 
 <style scoped>
@@ -103,7 +105,8 @@ export default {
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
 }
 
-.logo,.logo::after {
+.logo,
+.logo::after {
     display: flex;
     flex: 2;
     align-items: center;
@@ -138,7 +141,9 @@ export default {
     transition: all 0.2s ease;
 }
 
-.nav-div,.nav-div::after,.nav-div::before {
+.nav-div,
+.nav-div::after,
+.nav-div::before {
     cursor: pointer;
     height: 100%;
     align-items: center;

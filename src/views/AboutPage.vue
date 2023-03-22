@@ -2,17 +2,16 @@
     <div class="mainContent blogCardContainer">
         <p class="head">About</p>
         <div class="secondContent">
-            <div class="contnent"
-                 v-html="content" />
+            <div class="contnent" v-html="content" />
         </div>
     </div>
 </template>
 
 <script>
-import AnchorLeft from '../components/AnchorLeft.vue'
-import { getCustomConfig } from '../axios'
-import { mdStrToHTML } from '../tool/markdownRender'
-import { aboutMeStore } from '../stores/counter'
+import AnchorLeft from '../components/AnchorLeft.vue';
+import { getCustomConfig } from '../axios';
+import { mdStrToHTML } from '../tool/markdownRender';
+import { aboutMeStore } from '../stores/counter';
 export default {
     name: 'AboutPage',
     components: {
@@ -22,27 +21,27 @@ export default {
         return {
             aboutMe: {},
             content: '',
-        }
+        };
     },
     methods: {
         getInfo() {
             getCustomConfig().then((res) => {
-                const store = aboutMeStore()
-                this.aboutMe = res.data.data
-                this.content = mdStrToHTML(this.aboutMe.value)
-                store.content = this.content
-            })
+                const store = aboutMeStore();
+                this.aboutMe = res.data.data;
+                this.content = mdStrToHTML(this.aboutMe.value);
+                store.content = this.content;
+            });
         },
     },
     created() {
-        const store = aboutMeStore()
+        const store = aboutMeStore();
         if (store.content == 'null') {
-            this.getInfo()
+            this.getInfo();
         } else {
-            this.content = store.content
+            this.content = store.content;
         }
     },
-}
+};
 </script>
 
 <style scoped>
@@ -61,8 +60,7 @@ export default {
 }
 
 .mainContent:hover {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%),
-        0 2px 4px -1px rgba(0, 0, 0, 12%);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.3s ease;
 }
 

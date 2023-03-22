@@ -19,25 +19,26 @@
                 </div>
             </div>
         </div> -->
-        <div v-if="!($route.name === 'BlogDetail')"
-             class="tagCloud">
+        <div v-if="!($route.name === 'BlogDetail')" class="tagCloud">
             <div class="tagHead">
-                <p><i class="icon tags"
-                       style="color: #4285f4" />Tags</p>
+                <p><i class="icon tags" style="color: #4285f4" />Tags</p>
             </div>
             <div class="tagList">
-                <span v-for="tag in tags"
-                      :key="tag.tagId"
-                      class="ui tiny blue myTag label"
-                      style="margin-right: 10px;cursor: pointer;"
-                      @click="toTag(tag.tagId, tag.tagName)">{{ tag.tagName }}</span>
+                <span
+                    v-for="tag in tags"
+                    :key="tag.tagId"
+                    class="ui tiny blue myTag label"
+                    style="margin-right: 10px; cursor: pointer"
+                    @click="toTag(tag.tagId, tag.tagName)"
+                    >{{ tag.tagName }}</span
+                >
             </div>
         </div>
     </div>
 </template>
 <script>
-import { getRandomBlog, getTag } from '../axios'
-import { sliderStore, useSearchStore } from '../stores/counter'
+import { getRandomBlog, getTag } from '../axios';
+import { sliderStore, useSearchStore } from '../stores/counter';
 
 export default {
     name: 'AnchorRight',
@@ -56,8 +57,7 @@ export default {
                     articleId: 'OgSVnkzF',
                     authorId: 'K4vWpAz1',
                     title: 'Centos8环境搭建及项目部署',
-                    introduction:
-                        'Centos8 部署Springboot + Vue前后端分离项目全过程',
+                    introduction: 'Centos8 部署Springboot + Vue前后端分离项目全过程',
                     content: null,
                     tagNames: [
                         {
@@ -84,19 +84,19 @@ export default {
                     bgImg: 'https://user-pic-1308549476.cos.ap-nanjing.myqcloud.com/pic/96991663133786320.jpeg',
                 },
             ],
-        }
+        };
     },
     methods: {
         getTag() {
-            const store = sliderStore()
+            const store = sliderStore();
 
             if (store.tags.length > 0) {
-                this.tags = store.tags
+                this.tags = store.tags;
             } else {
                 getTag().then((res) => {
-                    this.tags = res.data.data
-                    store.tags = res.data.data
-                })
+                    this.tags = res.data.data;
+                    store.tags = res.data.data;
+                });
             }
         },
         // getRandomArticle() {
@@ -112,11 +112,11 @@ export default {
         //     }
         // },
         toTag(params, name) {
-            const store = useSearchStore()
-            store.type = 'Tag'
-            store.searchParams = params
-            store.searchName = name
-            this.$router.push({ name: 'Result' })
+            const store = useSearchStore();
+            store.type = 'Tag';
+            store.searchParams = params;
+            store.searchName = name;
+            this.$router.push({ name: 'Result' });
         },
         toBlog(articleId) {
             this.$router.push({
@@ -124,29 +124,31 @@ export default {
                 params: {
                     articleId: articleId,
                 },
-            })
+            });
         },
         routeChange(route) {
-            this.currnetRouter = route
+            this.currnetRouter = route;
         },
     },
     created() {
-        this.getTag()
+        this.getTag();
         // this.getRandomArticle()
     },
     watch: {
         $route: {
             handler(route) {
-                this.routeChange(route.name)
+                this.routeChange(route.name);
             },
             immediate: true, // 此项须设置为true
         },
     },
-}
+};
 </script>
 <style scoped>
 .blogIndex,
-.tagCloud,.blogIndex::after,.tagCloud::after {
+.tagCloud,
+.blogIndex::after,
+.tagCloud::after {
     border-radius: 7px;
     background-color: #fff;
     border: 1px solid #dcdcdc;
@@ -156,8 +158,7 @@ export default {
 
 .blogIndex:hover,
 .tagCloud:hover {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%),
-        0 2px 4px -1px rgba(0, 0, 0, 12%);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.3s ease;
 }
 
@@ -177,7 +178,9 @@ export default {
     flex-wrap: wrap;
 }
 
-.myTag,.myTag::after,.myTag::before {
+.myTag,
+.myTag::after,
+.myTag::before {
     margin: 3px 3px !important;
     font-size: 15px;
     display: inline-block;
@@ -186,8 +189,8 @@ export default {
 }
 
 .myTag:hover {
-    background-color: #0f6fb9!important;
-    border-color: #0f6fb9!important;
+    background-color: #0f6fb9 !important;
+    border-color: #0f6fb9 !important;
     transform: scale(1.1);
     transition: all 0.2s ease;
 }

@@ -1,31 +1,24 @@
 <template>
-    <div class="mainContent"
-         v-motion-slide-top>
+    <div class="mainContent" v-motion-slide-top>
         <p class="head">Category</p>
-        <div v-for="filing in filings"
-             :key="filing.filingId">
+        <div v-for="filing in filings" :key="filing.filingId">
             <div class="oneFiling">
-                <span class="ui violet ribbon label"
-                      style="margin-left: 13px;cursor: pointer;">
-                    {{filing.filingName}}
+                <span class="ui violet ribbon label" style="margin-left: 13px; cursor: pointer">
+                    {{ filing.filingName }}
                 </span>
                 Total:
-                <span class="articleCount"
-                      v-text="filing.articles.length"></span>
+                <span class="articleCount" v-text="filing.articles.length"></span>
                 Posts
                 <div class="cards">
-                    <div v-for="article in filing.articles"
-                         :key="article.articleId">
-                        <div class="articleTitle"
-                             style="margin:10px auto">
-                            <span style="font-size: 85%; color: #6a67ce"
-                                  v-text="littleTimeStr(article.releaseTime)">
-                            </span>&nbsp;&nbsp;
-                            <span style="cursor: pointer;color:dodgerblue"
-                                  @click="detail(article.articleId)"> {{ article.title }} </span>&nbsp;&nbsp;
-                            <span style="font-size: 80%; color: gray">{{
-								article.introduction
-							}}</span>
+                    <div v-for="article in filing.articles" :key="article.articleId">
+                        <div class="articleTitle" style="margin: 10px auto">
+                            <span style="font-size: 85%; color: #6a67ce" v-text="littleTimeStr(article.releaseTime)">
+                            </span
+                            >&nbsp;&nbsp;
+                            <span style="cursor: pointer; color: dodgerblue" @click="detail(article.articleId)">
+                                {{ article.title }} </span
+                            >&nbsp;&nbsp;
+                            <span style="font-size: 80%; color: gray">{{ article.introduction }}</span>
                         </div>
                     </div>
                 </div>
@@ -35,10 +28,10 @@
 </template>
 
 <script>
-import { getFilingInfo } from '../axios'
-import AnchorLeft from '../components/AnchorLeft.vue'
-import { filingStore } from '../stores/counter'
-import BlogCard from '../components/BlogCard.vue'
+import { getFilingInfo } from '../axios';
+import AnchorLeft from '../components/AnchorLeft.vue';
+import { filingStore } from '../stores/counter';
+import BlogCard from '../components/BlogCard.vue';
 
 export default {
     name: 'Filing',
@@ -49,39 +42,41 @@ export default {
     data() {
         return {
             filings: [],
-        }
+        };
     },
     methods: {
         getFilingInfo() {
-            const store = filingStore()
+            const store = filingStore();
             if (store.filings.length > 0) {
-                this.filings = store.filings
+                this.filings = store.filings;
             } else {
                 getFilingInfo().then((res) => {
-                    this.filings = res.data.data
-                    store.filings = res.data.data
-                })
+                    this.filings = res.data.data;
+                    store.filings = res.data.data;
+                });
             }
         },
         detail(articleId) {
             this.$router.push({
                 name: 'BlogDetail',
                 params: { articleId: articleId },
-            })
+            });
         },
         littleTimeStr(str) {
-            var newstring = str.substring(0, 10)
-            return newstring
+            var newstring = str.substring(0, 10);
+            return newstring;
         },
     },
     created() {
-        this.getFilingInfo()
+        this.getFilingInfo();
     },
-}
+};
 </script>
 
 <style scoped>
-.mainContent,.mainContent::before,.mainContent::after {
+.mainContent,
+.mainContent::before,
+.mainContent::after {
     width: 100%;
     padding: 25px 25px;
     border-radius: 7px;
@@ -94,8 +89,7 @@ export default {
 }
 
 .mainContent:hover {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%),
-        0 2px 4px -1px rgba(0, 0, 0, 12%);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.3s ease;
 }
 
@@ -125,7 +119,9 @@ export default {
     font-size: 1.15em;
 }
 
-.oneFiling,.oneFiling::before,.oneFiling::after {
+.oneFiling,
+.oneFiling::before,
+.oneFiling::after {
     border-radius: 7px;
     border: 1px solid #d0d7de;
     width: 98%;
@@ -136,8 +132,7 @@ export default {
 }
 
 .oneFiling:hover {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%),
-        0 2px 4px -1px rgba(0, 0, 0, 12%);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.3s ease;
 }
 

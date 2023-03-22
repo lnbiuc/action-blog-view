@@ -1,69 +1,71 @@
 <template>
     <div class="mainContent" v-motion-slide-top>
         <div class="head">
-            <p>{{ type }}&nbsp;<span style="color: #4285f4">{{ searchName }}</span></p>
+            <p>
+                {{ type }}&nbsp;<span style="color: #4285f4">{{ searchName }}</span>
+            </p>
         </div>
         <div class="result">
-            <BlogCard :blogs=blogs></BlogCard>
+            <BlogCard :blogs="blogs"></BlogCard>
         </div>
     </div>
 </template>
 
 <script>
-import {searchFilingId, searchTagId} from '../axios'
-import Blogs from '../components/Blogs.vue'
-import {useSearchStore} from '../stores/counter'
-import {computed} from 'vue'
-import BlogCard from '../components/BlogCard.vue'
+import { searchFilingId, searchTagId } from '../axios';
+import Blogs from '../components/Blogs.vue';
+import { useSearchStore } from '../stores/counter';
+import { computed } from 'vue';
+import BlogCard from '../components/BlogCard.vue';
 
 export default {
     name: 'SearchDetail',
-    components: {BlogCard, Blogs},
+    components: { BlogCard, Blogs },
     data() {
         return {
             type: '',
             searchParams: '',
             searchName: '',
             blogs: {},
-        }
+        };
     },
     methods: {
         getInfo(type, params) {
             if (type === 'Category') {
                 searchFilingId(params).then((res) => {
-                    this.blogs = res.data.data.data
-                })
-                return
+                    this.blogs = res.data.data.data;
+                });
+                return;
             }
             if (type === 'Tag') {
                 searchTagId(params).then((res) => {
-                    this.blogs = res.data.data.data
-                })
+                    this.blogs = res.data.data.data;
+                });
             }
         },
     },
     setup() {
         // 像 useRouter 那样定义一个变量拿到实例
-        const store = useSearchStore()
+        const store = useSearchStore();
         // 直接通过实例来获取数据
-        const type = computed(() => store.type)
-        const searchParams = computed(() => store.searchParams)
-        const searchName = computed(() => store.searchName)
+        const type = computed(() => store.type);
+        const searchParams = computed(() => store.searchParams);
+        const searchName = computed(() => store.searchName);
         return {
             type,
             searchParams,
             searchName,
-        }
+        };
     },
     mounted() {
-        this.getInfo(this.type, this.searchParams)
+        this.getInfo(this.type, this.searchParams);
     },
     watch: {
         searchParams() {
-            this.getInfo(this.type, this.searchParams)
-        }
-    }
- }
+            this.getInfo(this.type, this.searchParams);
+        },
+    },
+};
 </script>
 
 <style scoped>
@@ -80,8 +82,7 @@ export default {
 }
 
 .mainContent:hover {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%),
-    0 2px 4px -1px rgba(0, 0, 0, 12%);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.3s ease;
 }
 

@@ -1,25 +1,21 @@
-import {defineConfig, splitVendorChunkPlugin} from 'vite'
-import vue from '@vitejs/plugin-vue'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import {ElementPlusResolver} from 'unplugin-vue-components/resolvers'
-import {visualizer} from 'rollup-plugin-visualizer';
-import {resolve} from 'path'
-import viteCompression from "vite-plugin-compression";
+import { defineConfig, splitVendorChunkPlugin } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import { visualizer } from 'rollup-plugin-visualizer';
+import { resolve } from 'path';
+import viteCompression from 'vite-plugin-compression';
 
 export default defineConfig({
     plugins: [
         vue(),
         visualizer(),
         AutoImport({
-            resolvers: [
-                ElementPlusResolver(),
-            ],
+            resolvers: [ElementPlusResolver()],
         }),
         Components({
-            resolvers: [
-                ElementPlusResolver(),
-            ],
+            resolvers: [ElementPlusResolver()],
         }),
         splitVendorChunkPlugin(),
         viteCompression(),
@@ -61,19 +57,19 @@ export default defineConfig({
                 route: ['vue-router/dist/vue-router.mjs'],
                 axios: ['axios'],
                 hljs: ['highlight.js'],
-            }
-        }
+            },
+        },
     },
     define: {
-        "process.env": {},
+        'process.env': {},
     },
     presets: [
-        ['@vue/app', {
-            polyfills: [
-                'es.promise',
-                'es.symbol'
-            ]
-        }]
+        [
+            '@vue/app',
+            {
+                polyfills: ['es.promise', 'es.symbol'],
+            },
+        ],
     ],
     css: {
         postcss: {
@@ -85,14 +81,14 @@ export default defineConfig({
                         'Chrome > 31',
                         'ff > 31',
                         '> 1%',
-                        "last 1 chrome version",
-                        "last 1 firefox version",
-                        "last 1 safari version",
-                        "last 1 ie version"
+                        'last 1 chrome version',
+                        'last 1 firefox version',
+                        'last 1 safari version',
+                        'last 1 ie version',
                     ],
                     grid: true,
                 }),
             ],
-        }
-    }
-})
+        },
+    },
+});

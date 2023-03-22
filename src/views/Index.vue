@@ -22,15 +22,15 @@
     </div>
     <Footer></Footer>
     <el-dialog v-model="dialogJumpVisible" title="Tips">
-        <h2>网站已更换域名至
+        <h2>
+            网站已更换域名至
             <a @click="jumpToNewDomain">vio.vin</a>
         </h2>
         <h4>
             Changed domain name to
             <a @click="jumpToNewDomain">vio.vin</a>
         </h4>
-        <h2>请前往新的域名访问 <a @click="jumpToNewDomain">立即跳转</a>
-        </h2>
+        <h2>请前往新的域名访问 <a @click="jumpToNewDomain">立即跳转</a></h2>
         <h4>
             Please use the new domain name
             <a @click="jumpToNewDomain">Immediate jump</a>
@@ -42,12 +42,12 @@
 </template>
 
 <script>
-import Footer from '../components/Footer.vue'
-import HeaderRebuild from '../components/HeaderRebuild.vue'
-import HeaderRebuildPhone from '../components/HeaderRebuildPhone.vue'
-import AnchorLeft from '../components/AnchorLeft.vue'
-import AnchorRight from '../components/AnchorRight.vue'
-import MainImg from '../components/MainImg.vue'
+import Footer from '../components/Footer.vue';
+import HeaderRebuild from '../components/HeaderRebuild.vue';
+import HeaderRebuildPhone from '../components/HeaderRebuildPhone.vue';
+import AnchorLeft from '../components/AnchorLeft.vue';
+import AnchorRight from '../components/AnchorRight.vue';
+import MainImg from '../components/MainImg.vue';
 
 export default {
     name: 'Index',
@@ -65,31 +65,31 @@ export default {
             phone: false,
             imgDisplay: true,
             dialogJumpVisible: false,
-        }
+        };
     },
     methods: {
         setHeader() {
-            let width = document.documentElement.clientWidth
+            let width = document.documentElement.clientWidth;
             if (width < 1000) {
-                this.phone = true
-                this.pc = false
+                this.phone = true;
+                this.pc = false;
             }
         },
         cacelDialog() {
-            this.dialogJumpVisible = false
+            this.dialogJumpVisible = false;
         },
         jumpToNewDomain() {
-            window.location = "https://vio.vin"
-        }
+            window.location = 'https://vio.vin';
+        },
     },
     created() {
         this.setHeader();
         let domain = document.domain;
-        if (domain == "beyondhoriozn.top") {
-            this.dialogJumpVisible = true
+        if (domain == 'beyondhoriozn.top') {
+            this.dialogJumpVisible = true;
         }
     },
-}
+};
 </script>
 
 <style scoped>
@@ -178,13 +178,14 @@ a {
         border: 1px solid #0d1117;
     }
 
-    .el-dialog__body > h3,h2,h4 {
+    .el-dialog__body > h3,
+    h2,
+    h4 {
         border-bottom: 0;
     }
 }
 
 @media screen and (max-width: 1000px) {
-
     .left,
     .right {
         display: none;

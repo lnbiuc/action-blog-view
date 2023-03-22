@@ -1,10 +1,8 @@
 <template>
     <div class="mainContent">
-        <div class="left-box">
-        </div>
+        <div class="left-box"></div>
         <div class="article">
-            <div :style="{ backgroundImage: 'url(' + blog.bgImg + ')' }" v-motion-slide-top
-             class="blogImg">
+            <div :style="{ backgroundImage: 'url(' + blog.bgImg + ')' }" v-motion-slide-top class="blogImg">
                 <div>
                     <p class="blogTitle">{{ blog.title }}</p>
                     <p class="blogInfo">作者：{{ blog.authorVo.username }}｜发布于：{{ blog.releaseTime }}</p>
@@ -15,8 +13,7 @@
                     <p class="divider">CONTENT</p>
                 </el-divider>
                 <div id="nav"></div>
-                <div class="contnent"
-                    v-html="content"></div>
+                <div class="contnent" v-html="content"></div>
                 <el-divider class="divider">
                     <p class="divider">END</p>
                 </el-divider>
@@ -24,7 +21,8 @@
                     <ul>
                         <li>
                             本文作者：
-                            <span style="color: #4285f4">{{ blog.authorVo.username }}
+                            <span style="color: #4285f4"
+                                >{{ blog.authorVo.username }}
                                 <router-link to="/about">（联系作者）</router-link>
                             </span>
                         </li>
@@ -46,8 +44,7 @@
                         </li>
                         <li>
                             本站点采用
-                            <a href="https://creativecommons.org/licenses/by/4.0/"
-                            style="color: #4285f4">
+                            <a href="https://creativecommons.org/licenses/by/4.0/" style="color: #4285f4">
                                 署名 4.0 国际 (CC BY 4.0)
                             </a>
                             创作共享协议。可自由转载、引用，并且允许商业性使用。但需署名作者且注明文章出处。
@@ -67,12 +64,12 @@
     </div>
 </template>
 <script>
-import { getArticleByArticleId } from '../axios'
-import Clipboard from 'clipboard'
-import { ElMessage } from 'element-plus'
-import { mdStrToHTML } from '../tool/markdownRender'
-import { renderToc } from '../tool/renderToc'
-import _ from 'lodash'
+import { getArticleByArticleId } from '../axios';
+import Clipboard from 'clipboard';
+import { ElMessage } from 'element-plus';
+import { mdStrToHTML } from '../tool/markdownRender';
+import { renderToc } from '../tool/renderToc';
+import _ from 'lodash';
 export default {
     name: 'BlogDetail',
     data() {
@@ -108,55 +105,55 @@ export default {
             indexList: {},
             clipboard: '',
             nav: {},
-        }
+        };
     },
     methods: {
         initTocbot() {
-            renderToc()
+            renderToc();
         },
         formatTime(str) {
-            return str.substring(0, 10)
+            return str.substring(0, 10);
         },
     },
     created() {
-        this.articleId = this.$route.params.articleId
+        this.articleId = this.$route.params.articleId;
         getArticleByArticleId(this.articleId).then((res) => {
-            this.blog = res.data.data
-            this.content = mdStrToHTML(this.blog.content)
-            document.title = "薇尔薇 | " + this.blog.title
-            document.description = this.blog.introduction
+            this.blog = res.data.data;
+            this.content = mdStrToHTML(this.blog.content);
+            document.title = '薇尔薇 | ' + this.blog.title;
+            document.description = this.blog.introduction;
             this.$nextTick(() => {
-                this.initTocbot()
-                if(!this.$route.hash == '') {
-                    let el = document.querySelector(this.$route.hash)
-                    window.scroll({ top: el.offsetTop, behavior: 'smooth' })
+                this.initTocbot();
+                if (!this.$route.hash == '') {
+                    let el = document.querySelector(this.$route.hash);
+                    window.scroll({ top: el.offsetTop, behavior: 'smooth' });
                 }
-            })
-        })
+            });
+        });
     },
     mounted() {
-        this.clipboard = new Clipboard('.copy-btn')
+        this.clipboard = new Clipboard('.copy-btn');
         // 复制成功失败的提示
         this.clipboard.on('success', (e) => {
-            ElMessage.success('复制成功')
-        })
+            ElMessage.success('复制成功');
+        });
         this.clipboard.on('error', (e) => {
-            ElMessage.error('复制失败')
-        })
+            ElMessage.error('复制失败');
+        });
     },
     beforeDestroy() {
-        this.clipboard.destroy()
-        tocbot.destroy()
+        this.clipboard.destroy();
+        tocbot.destroy();
     },
     destroy() {
-        this.clipboard.destroy()
-        tocbot.destroy()
+        this.clipboard.destroy();
+        tocbot.destroy();
     },
     beforeRouteLeave() {
-        this.clipboard.destroy()
-        tocbot.destroy()
+        this.clipboard.destroy();
+        tocbot.destroy();
     },
-}
+};
 </script>
 <style scoped>
 .mainContent {
@@ -183,8 +180,7 @@ export default {
 }
 
 .content:hover {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%),
-        0 2px 4px -1px rgba(0, 0, 0, 12%);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.3s ease;
 }
 
@@ -221,8 +217,7 @@ export default {
 }
 
 .blogImg:hover {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%),
-        0 2px 4px -1px rgba(0, 0, 0, 12%);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.3s;
 }
 
@@ -329,8 +324,7 @@ export default {
 }
 
 .toc-box:hover {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%),
-        0 2px 4px -1px rgba(0, 0, 0, 12%);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.3s ease;
 }
 
@@ -444,9 +438,9 @@ pre.hljs {
         right: 0;
         z-index: 10;
         border-radius: 5px;
-        border: 1px solid rgb(255,255,255,0.3);
+        border: 1px solid rgb(255, 255, 255, 0.3);
         padding: 5px 5px;
-        color: rgb(255,255,255,0.3);
+        color: rgb(255, 255, 255, 0.3);
         font-size: 20px;
         margin: 5px 5px;
         transition: all 300ms ease;

@@ -15,7 +15,7 @@
 /* 滚动条滑块(竖向:vertical 横向:horizontal) */
 ::-webkit-scrollbar-thumb {
     cursor: pointer;
-    background-color:#b3b1d8;
+    background-color: #b3b1d8;
     border-radius: 0;
 }
 /* 滚动条滑块hover */
@@ -24,12 +24,12 @@
 }
 /* 同时有垂直和水平滚动条时交汇的部分 */
 ::-webkit-scrollbar-corner {
-    display: block;    /* 修复交汇时出现的白块 */
+    display: block; /* 修复交汇时出现的白块 */
 }
 
 #app {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'tnum';
@@ -111,16 +111,14 @@ h6 > code {
     border-radius: 6px;
     padding: 0.2em 0.4em;
     font-size: 85%;
-    font-family: ui-monospace, SF Mono, Menlo, Consolas, Liberation Mono,
-        monospace !important;
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, Liberation Mono, monospace !important;
     margin: 0.2em;
     background-color: rgba(175, 184, 193, 0.2);
     color: #0d1117;
 }
 
 code {
-    font-family: SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono,
-        monospace !important;
+    font-family: SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace !important;
 }
 
 blockquote {
@@ -132,8 +130,8 @@ blockquote {
     margin-block-end: 1em;
     /*margin-inline-start: 40px;*/
     /*margin-inline-end: 40px;*/
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji';
     -webkit-font-smoothing: antialiased;
     font-size: 16px;
     word-wrap: break-word;
@@ -146,8 +144,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji' !important;
     -webkit-font-smoothing: antialiased;
     font-weight: 500 !important;
 }
@@ -161,8 +159,8 @@ h3 {
 .contnent > *,
 blockquote {
     line-height: 1.6 !important;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji' !important;
     -webkit-font-smoothing: antialiased;
     text-align: justify;
     font-weight: 350;

@@ -1,40 +1,32 @@
 <template>
-    <div class="block"
-         v-motion-slide-left>
+    <div class="block" v-motion-slide-left>
         <div class="about">
             <div class="anchorHeader">
-                <p><i class="icon user"
-                       style="color: #4285f4" />&nbsp;Author</p>
+                <p><i class="icon user" style="color: #4285f4" />&nbsp;Author</p>
             </div>
             <div class="anchor">
-                <el-avatar :size="150"
-                           class="anchorImg"
-                           src="https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/squre-modified.png" />
+                <el-avatar
+                    :size="150"
+                    class="anchorImg"
+                    src="https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/squre-modified.png"
+                />
                 <p class="name">violet</p>
-                <p class="introduction"
-                   style="text-indent: 2em">
-                    什么？你左大括号不换行？天纳！这简直相当于你吃甜豆腐脑一样！！ </p>
+                <p class="introduction" style="text-indent: 2em">
+                    什么？你左大括号不换行？天纳！这简直相当于你吃甜豆腐脑一样！！
+                </p>
             </div>
             <div class="aboutInfo">
-                <a class="svg"
-                   href="https://github.com/lnbiuc">
-                    <i class="icon github"
-                       style="color: #1e1e1e" />
+                <a class="svg" href="https://github.com/lnbiuc">
+                    <i class="icon github" style="color: #1e1e1e" />
                 </a>
-                <a class="svg"
-                   href="https://twitter.com/ZZSLL_53387">
-                    <i class="icon twitter"
-                       style="color: rgba(74, 153, 233)" />
+                <a class="svg" href="https://twitter.com/ZZSLL_53387">
+                    <i class="icon twitter" style="color: rgba(74, 153, 233)" />
                 </a>
-                <a class="svg"
-                   href="https://weibo.com/u/5641901500">
-                    <i class="icon weibo"
-                       style="color: rgba(255, 0, 0, 0.76)" />
+                <a class="svg" href="https://weibo.com/u/5641901500">
+                    <i class="icon weibo" style="color: rgba(255, 0, 0, 0.76)" />
                 </a>
-                <a class="svg"
-                   href="mailto:violetzzs@proton.me">
-                    <i class="icon envelope"
-                       style="color: #4285f4" />
+                <a class="svg" href="mailto:violetzzs@proton.me">
+                    <i class="icon envelope" style="color: #4285f4" />
                 </a>
             </div>
             <div class="blogInfo">
@@ -54,8 +46,7 @@
         </div>
         <div class="count">
             <div class="countHead">
-                <p><i class="icon chart bar outline"
-                       style="color: #4285f4" />&nbsp;Statistical Info</p>
+                <p><i class="icon chart bar outline" style="color: #4285f4" />&nbsp;Statistical Info</p>
             </div>
             <div class="countList">
                 <div>
@@ -63,35 +54,28 @@
                         <i class="icon red calendar alternate outline" />
                         Run Time
                     </div>
-                    <span>
-                        {{ count.existTime }} Day
-                    </span>
+                    <span> {{ count.existTime }} Day </span>
                 </div>
                 <div>
                     <div>
                         <i class="icon blue eye" />
                         Article View
                     </div>
-                    <span>
-                        {{ count.totalViews }} Times
-                    </span>
+                    <span> {{ count.totalViews }} Times </span>
                 </div>
                 <div>
                     <div>
                         <i class="icon yellow tv" />
                         Page View
                     </div>
-                    <span>
-                        {{ count.webViews }} Times
-                    </span>
+                    <span> {{ count.webViews }} Times </span>
                 </div>
                 <div>
                     <div>
                         <i class="icon orange sync" />
                         Last Update
                     </div>
-                    <span v-text="subStr(count.lastUpdate)">
-                    </span>
+                    <span v-text="subStr(count.lastUpdate)"> </span>
                 </div>
             </div>
         </div>
@@ -99,8 +83,8 @@
 </template>
 
 <script>
-import { getCountInfo } from '../axios'
-import { sliderStore } from '../stores/counter'
+import { getCountInfo } from '../axios';
+import { sliderStore } from '../stores/counter';
 
 export default {
     name: 'Anchor',
@@ -122,30 +106,30 @@ export default {
                     time: '2022-09-24 23:48:41',
                 },
             ],
-        }
+        };
     },
     methods: {
         subStr(str) {
-            var newstring = str.substring(0, 10)
-            return newstring
+            var newstring = str.substring(0, 10);
+            return newstring;
         },
         getCountInfo() {
-            const store = sliderStore()
+            const store = sliderStore();
 
             if (store.count.webViews) {
-                this.count = store.count
+                this.count = store.count;
             } else {
                 getCountInfo().then((res) => {
-                    this.count = res.data.data
-                    store.count = res.data.data
-                })
+                    this.count = res.data.data;
+                    store.count = res.data.data;
+                });
             }
         },
     },
     created() {
-        this.getCountInfo()
+        this.getCountInfo();
     },
-}
+};
 </script>
 
 <style scoped>
@@ -154,9 +138,9 @@ export default {
     margin: 20px auto;
 }
 
-.anchorImg, .anchorImg::after {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%),
-        0 2px 4px -1px rgba(0, 0, 0, 12%);
+.anchorImg,
+.anchorImg::after {
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.5s ease;
 }
 
@@ -164,8 +148,6 @@ export default {
     transform: rotate(360deg) scale(1.1);
     transition: all 0.3s ease;
 }
-
-
 
 .name {
     font-size: 25px;
@@ -185,7 +167,9 @@ export default {
     font-size: 12px;
 }
 
-.svg,.svg::after,.svg::before {
+.svg,
+.svg::after,
+.svg::before {
     background-color: #eee;
     font-size: 20px;
     padding: 7px 7px;
@@ -266,7 +250,9 @@ export default {
 }
 
 .about,
-.count,.about::after,.count::after {
+.count,
+.about::after,
+.count::after {
     border-radius: 7px;
     background-color: #ffffff;
     border: 1px solid #c9d1d9;
@@ -276,8 +262,7 @@ export default {
 
 .about:hover,
 .count:hover {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%),
-        0 2px 4px -1px rgba(0, 0, 0, 12%);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.3s ease;
 }
 

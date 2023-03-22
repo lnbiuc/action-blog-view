@@ -4,11 +4,8 @@
             {{ obj.output }}
             <span class="easy-typed-cursor">_</span>
         </div>
-        <div class="iconDown"
-             @click="scrollToBlog()">
-            <span id="s"
-                  class="iconSpan hvr-bounce-in"
-                  style="text-shadow: 1px 1px 2px #6a67ce;">
+        <div class="iconDown" @click="scrollToBlog()">
+            <span id="s" class="iconSpan hvr-bounce-in" style="text-shadow: 1px 1px 2px #6a67ce">
                 <i class="icon chevron down" />
             </span>
         </div>
@@ -16,7 +13,7 @@
 </template>
 
 <script>
-import EasyTyper from 'easy-typer-js'
+import EasyTyper from 'easy-typer-js';
 
 export default {
     name: 'MainImg',
@@ -37,64 +34,64 @@ export default {
             },
             keepDo: false,
             timer: null,
-        }
+        };
     },
     methods: {
         scrollToBlog() {
-            var el = document.getElementById('blogScroll')
-            window.scroll({ top: el.offsetTop, behavior: 'smooth' })
+            var el = document.getElementById('blogScroll');
+            window.scroll({ top: el.offsetTop, behavior: 'smooth' });
         },
         // 初始化
         init() {
-            this.fetchData()
+            this.fetchData();
         },
         fetchData() {
             // 一言Api进行打字机循环输出效果
             fetch('https://v1.hitokoto.cn')
                 .then((res) => {
-                    return res.json()
+                    return res.json();
                 })
                 .then(({ hitokoto }) => {
-                    this.initTyped(hitokoto)
+                    this.initTyped(hitokoto);
                 })
                 .catch((err) => {
-                    console.error(err)
-                })
+                    console.error(err);
+                });
         },
         initTyped(input, fn, hooks) {
-            const obj = this.obj
-            const typed = new EasyTyper(obj, input, fn, hooks)
+            const obj = this.obj;
+            const typed = new EasyTyper(obj, input, fn, hooks);
         },
         keep() {
             if (this.keepDo) {
-                this.init()
-                this.timer = setTimeout(this.keep, 20000)
+                this.init();
+                this.timer = setTimeout(this.keep, 20000);
             } else {
-                clearTimeout(timer)
+                clearTimeout(timer);
             }
         },
     },
     mounted() {
-        this.keepDo = true
-        this.keep()
-        clearInterval(this.timer)
+        this.keepDo = true;
+        this.keep();
+        clearInterval(this.timer);
     },
     beforeDestroy() {
-        this.keepDo = false
-        this.timer = null
-        clearInterval(this.timer)
+        this.keepDo = false;
+        this.timer = null;
+        clearInterval(this.timer);
     },
     destroy() {
-        this.keepDo = false
-        this.timer = null
-        clearInterval(this.timer)
+        this.keepDo = false;
+        this.timer = null;
+        clearInterval(this.timer);
     },
     beforeRouteLeave() {
-        this.keepDo = false
-        this.timer = null
-        clearInterval(this.timer)
+        this.keepDo = false;
+        this.timer = null;
+        clearInterval(this.timer);
     },
-}
+};
 </script>
 
 <style scoped>
@@ -118,15 +115,14 @@ img {
     width: 100%;
     height: calc(100vh - 60px);
     position: relative;
-    background: url('https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/wallhaven-2ygz3x.jpeg')
-        center center no-repeat;
+    background: url('https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/wallhaven-2ygz3x.jpeg') center center
+        no-repeat;
     z-index: 1;
     min-height: 300px;
 }
 
 .wobble-horizontal:hover {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%),
-        0 2px 4px -1px rgba(0, 0, 0, 12%);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.3s ease-in-out;
 }
 
@@ -251,7 +247,6 @@ svg {
     }
 }
 </style>
-
 
 <style lang="stylus">
 .typed-cursor {

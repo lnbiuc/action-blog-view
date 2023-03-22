@@ -21,18 +21,17 @@
 					placeholder="输入关键词搜索"
 					size="large"
 					@search="search" /> -->
-                <el-input class="search"
-                          style="margin-right:10px"
-                          v-model="params"
-                          placeholder="输入关键词搜索"
-                          clearable />
-                <el-button @click="search"
-                           style="margin-left:10px"
-                           type="primary">
+                <el-input
+                    class="search"
+                    style="margin-right: 10px"
+                    v-model="params"
+                    placeholder="输入关键词搜索"
+                    clearable
+                />
+                <el-button @click="search" style="margin-left: 10px" type="primary">
                     <i class="icon search" />
                     Search
                 </el-button>
-
             </div>
             <div class="total">
                 <p>
@@ -47,9 +46,9 @@
 </template>
 
 <script>
-import Blogs from '../components/Blogs.vue'
-import { searchFilingName, searchTagName, searchTitle } from '../axios'
-import BlogCard from '../components/BlogCard.vue'
+import Blogs from '../components/Blogs.vue';
+import { searchFilingName, searchTagName, searchTitle } from '../axios';
+import BlogCard from '../components/BlogCard.vue';
 
 export default {
     name: 'Search',
@@ -63,46 +62,46 @@ export default {
             params: '',
             blogs: {},
             total: 0,
-        }
+        };
     },
     methods: {
         search() {
-            this.blogs = {}
+            this.blogs = {};
 
             if (this.index === 'Title') {
-                this.searchTitle()
-                return
+                this.searchTitle();
+                return;
             }
             if (this.index === 'Category') {
-                this.searchFiling()
-                return
+                this.searchFiling();
+                return;
             }
             if (this.index === 'Tag') {
-                this.searchTag()
-                return
+                this.searchTag();
+                return;
             }
-            this.searchTitle()
+            this.searchTitle();
         },
         searchTitle() {
             searchTitle(this.params).then((res) => {
-                this.total = res.data.data.total
-                this.blogs = res.data.data.data
-            })
+                this.total = res.data.data.total;
+                this.blogs = res.data.data.data;
+            });
         },
         searchFiling() {
             searchFilingName(this.params).then((res) => {
-                this.total = res.data.data.total
-                this.blogs = res.data.data.data
-            })
+                this.total = res.data.data.total;
+                this.blogs = res.data.data.data;
+            });
         },
         searchTag() {
             searchTagName(this.params).then((res) => {
-                this.total = res.data.data.total
-                this.blogs = res.data.data.data
-            })
+                this.total = res.data.data.total;
+                this.blogs = res.data.data.data;
+            });
         },
     },
-}
+};
 </script>
 
 <style scoped>
@@ -119,8 +118,7 @@ export default {
 }
 
 .mainContent:hover {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%),
-        0 2px 4px -1px rgba(0, 0, 0, 12%);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.3s ease;
 }
 
