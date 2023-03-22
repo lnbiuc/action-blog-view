@@ -11,7 +11,7 @@
                 </div>
             </div>
         </div>
-        <div class="page">
+        <div class="page" style="margin-top: 15px">
             <el-pagination
                 :currentPage="current"
                 :page-size="size"
@@ -56,7 +56,7 @@ export default {
     data() {
         return {
             total: 0,
-            size: 10,
+            size: 5,
             current: 1,
             msgs: {},
             rules: {
@@ -145,10 +145,10 @@ export default {
         if (store.current !== -1) {
             this.current = store.current;
             this.size = store.size;
-            this.tatal = store.total;
+            this.total = store.total;
             this.page(this.current, this.size);
         } else {
-            this.page(1, 10);
+            this.page(1, 5);
         }
     },
 };
@@ -181,7 +181,7 @@ export default {
 }
 
 .message {
-    min-height: 80vh;
+    min-height: 70vh;
 }
 
 .form {
@@ -204,13 +204,6 @@ export default {
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.3s ease;
     background-color: rgba(0, 0, 0, 0.04);
-}
-
-.avatar {
-    flex: 1;
-    background-size: cover;
-    max-width: 200px;
-    margin: 0 10px;
 }
 
 .info {
@@ -250,7 +243,7 @@ export default {
     .time {
         display: flex;
         flex-direction: row;
-        justify-content: end;
+        justify-content: flex-end;
     }
 }
 

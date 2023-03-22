@@ -85,7 +85,7 @@ export default {
     created() {
         this.setHeader();
         let domain = document.domain;
-        if (domain == 'beyondhoriozn.top') {
+        if (domain == 'beyondhorizon.top') {
             this.dialogJumpVisible = true;
         }
     },

@@ -108,13 +108,13 @@ footer {
 }
 
 @media screen and (max-width: 1000px) {
-    footer >>> p {
+    footer p {
         padding: 5px 0;
     }
 }
 
 @media screen and (max-width: 450px) {
-    .create >>> span {
+    .create :deep(span) {
         padding: 5px 0;
     }
     .copy,

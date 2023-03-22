@@ -2,46 +2,65 @@
     <div class="mainContent blogCardContainer">
         <p class="head">About</p>
         <div class="secondContent">
-            <div class="contnent" v-html="content" />
+            <md-editor
+                editor-id="blogEditor"
+                style="max-width: 850px"
+                :show-code-row-number="true"
+                v-model="data.content"
+                :theme="data.currentTheme"
+                previewOnly
+                preview-theme="smart-blue"
+            />
         </div>
     </div>
 </template>
-
-<script>
-import AnchorLeft from '../components/AnchorLeft.vue';
-import { getCustomConfig } from '../axios';
-import { mdStrToHTML } from '../tool/markdownRender';
+<script setup>
 import { aboutMeStore } from '../stores/counter';
-export default {
-    name: 'AboutPage',
-    components: {
-        AnchorLeft,
-    },
-    data() {
-        return {
-            aboutMe: {},
-            content: '',
-        };
-    },
-    methods: {
-        getInfo() {
-            getCustomConfig().then((res) => {
-                const store = aboutMeStore();
-                this.aboutMe = res.data.data;
-                this.content = mdStrToHTML(this.aboutMe.value);
-                store.content = this.content;
-            });
-        },
-    },
-    created() {
+import MdEditor from 'md-editor-v3';
+import 'md-editor-v3/lib/style.css';
+import { ref } from 'vue';
+import { getCustomConfig } from '../axios';
+const data = ref({
+    currentTheme: 'light',
+    aboutMe: {},
+    content: '',
+});
+
+const getInfo = () => {
+    getCustomConfig().then((res) => {
         const store = aboutMeStore();
-        if (store.content == 'null') {
-            this.getInfo();
-        } else {
-            this.content = store.content;
-        }
-    },
+        data.value.aboutMe = res.data.data.value;
+        data.value.content = data.value.aboutMe;
+        store.content = data.value.content;
+    });
 };
+
+const store = aboutMeStore();
+if (store.content == 'null') {
+    getInfo();
+} else {
+    data.value.content = store.content;
+}
+
+var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+if (isLight) {
+    data.value.currentTheme = 'light';
+} else {
+    data.value.currentTheme = 'dark';
+}
+
+const mqList = window.matchMedia('(prefers-color-scheme: light)');
+
+mqList.addEventListener('change', (event) => {
+    // is dark mode
+    data.value.currentTheme = 'light';
+    if (event.matches) {
+    } else {
+        // not dark mode
+        data.value.currentTheme = 'dark';
+    }
+});
 </script>
 
 <style scoped>
@@ -79,12 +98,8 @@ img {
     width: 200px;
 }
 
-.contnent {
-    max-width: 69.4vw;
-    scroll-behavior: smooth;
-    margin: 0 20px 15px;
-    font-size: 15px;
-    word-break: break-all;
+.md-editor-dark {
+    --md-bk-color: #0d1117 !important;
 }
 
 @media screen and (max-width: 1000px) {

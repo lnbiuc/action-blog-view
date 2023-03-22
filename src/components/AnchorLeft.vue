@@ -22,9 +22,6 @@
                 <a class="svg" href="https://twitter.com/ZZSLL_53387">
                     <i class="icon twitter" style="color: rgba(74, 153, 233)" />
                 </a>
-                <a class="svg" href="https://weibo.com/u/5641901500">
-                    <i class="icon weibo" style="color: rgba(255, 0, 0, 0.76)" />
-                </a>
                 <a class="svg" href="mailto:violetzzs@proton.me">
                     <i class="icon envelope" style="color: #4285f4" />
                 </a>

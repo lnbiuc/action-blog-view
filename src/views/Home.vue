@@ -7,7 +7,7 @@
                 :currentPage="current"
                 :page-size="size"
                 :total="total"
-                pager-count="5"
+                :pager-count="5"
                 background
                 hide-on-single-page
                 layout="prev, pager, next"

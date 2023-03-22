@@ -3,7 +3,11 @@
         <p class="head">Category</p>
         <div v-for="filing in filings" :key="filing.filingId">
             <div class="oneFiling">
-                <span class="ui violet ribbon label" style="margin-left: 13px; cursor: pointer">
+                <span
+                    @click="toFiling(filing.filingId, filing.filingName)"
+                    class="ui violet ribbon label"
+                    style="margin-left: 13px; cursor: pointer"
+                >
                     {{ filing.filingName }}
                 </span>
                 Total:
@@ -30,7 +34,7 @@
 <script>
 import { getFilingInfo } from '../axios';
 import AnchorLeft from '../components/AnchorLeft.vue';
-import { filingStore } from '../stores/counter';
+import { filingStore, useSearchStore } from '../stores/counter';
 import BlogCard from '../components/BlogCard.vue';
 
 export default {
@@ -63,8 +67,14 @@ export default {
             });
         },
         littleTimeStr(str) {
-            var newstring = str.substring(0, 10);
-            return newstring;
+            return str.substring(0, 10);
+        },
+        toFiling(params, name) {
+            const store = useSearchStore();
+            store.type = 'Category';
+            store.searchParams = params;
+            store.searchName = name;
+            this.$router.push({ name: 'Result' });
         },
     },
     created() {
