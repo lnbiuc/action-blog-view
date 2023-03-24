@@ -32,20 +32,20 @@
 </template>
 
 <script>
-import { getFilingInfo } from '../axios';
-import AnchorLeft from '../components/AnchorLeft.vue';
-import { filingStore, useSearchStore } from '../stores/counter';
-import BlogCard from '../components/BlogCard.vue';
+import { getFilingInfo } from "../axios";
+import AnchorLeft from "../components/AnchorLeft.vue";
+import { filingStore, useSearchStore } from "../stores/counter";
+import BlogCard from "../components/BlogCard.vue";
 
 export default {
-    name: 'Filing',
+    name: "Filing",
     components: {
         AnchorLeft,
-        BlogCard,
+        BlogCard
     },
     data() {
         return {
-            filings: [],
+            filings: []
         };
     },
     methods: {
@@ -62,8 +62,8 @@ export default {
         },
         detail(articleId) {
             this.$router.push({
-                name: 'BlogDetail',
-                params: { articleId: articleId },
+                name: "BlogDetail",
+                params: { articleId: articleId }
             });
         },
         littleTimeStr(str) {
@@ -71,15 +71,15 @@ export default {
         },
         toFiling(params, name) {
             const store = useSearchStore();
-            store.type = 'Category';
+            store.type = "Category";
             store.searchParams = params;
             store.searchName = name;
-            this.$router.push({ name: 'Result' });
-        },
+            this.$router.push({ name: "Result" });
+        }
     },
     created() {
         this.getFilingInfo();
-    },
+    }
 };
 </script>
 
@@ -116,7 +116,7 @@ export default {
 }
 
 .articleTitle {
-    font-size: 1.3em;
+    font-size: 1rem;
     overflow: hidden;
     /*文本不会换行*/
     white-space: nowrap;
