@@ -1,5 +1,5 @@
 <template>
-    <div class="main blogCardContainer">
+    <div class="main blogCardContainer" v-motion-slide-top>
         <BlogCard :blogs="blogs"></BlogCard>
     </div>
 </template>

@@ -85,9 +85,8 @@ export default {
     padding: 25px 25px;
     border-radius: 7px;
     position: relative;
-    background-color: #fff;
-    min-height: 100vh;
-    border: 1px solid #d0d7de;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #dcdcdc;
     margin-bottom: 20px;
     transition: all 0.3s ease;
 }
@@ -101,15 +100,14 @@ export default {
     font-size: 35px;
     text-align: center;
     font-weight: 400;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 .mainContent > .content {
-    margin: 0 auto;
+    margin: 10px auto;
 }
 .content {
     display: flex;
     flex-direction: row;
-    margin-top: 10px;
     max-width: 47.1vw;
     flex-wrap: wrap;
     justify-content: center;
@@ -121,7 +119,7 @@ export default {
     display: flex;
     flex-direction: row;
     width: 250px;
-    border: 1px solid #d0d7de;
+    border: 1px solid #dcdcdc;
     border-radius: 7px;
     margin: 10px 10px;
     padding: 10px 10px;
@@ -186,13 +184,13 @@ export default {
 @media (prefers-color-scheme: dark) {
     .mainContent,
     .card {
-        background-color: #0d1117 !important;
+        background: rgba(0, 0, 0, 0.7);
         color: #c9d1d9 !important;
         border: 1px solid #30363d;
     }
 
     .card:hover {
-        background-color: #191a1c !important;
+        background-color: #0f0f0f !important;
     }
 }
 </style>

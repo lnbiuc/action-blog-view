@@ -74,9 +74,8 @@ export default {
     padding: 25px 25px;
     border-radius: 7px;
     position: relative;
-    background-color: #fff;
-    min-height: 50vh;
-    border: 1px solid #d0d7de;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #dcdcdc;
     transition: all 0.3s ease;
     margin-bottom: 20px;
 }
@@ -103,7 +102,7 @@ export default {
 
 @media (prefers-color-scheme: dark) {
     .mainContent {
-        background-color: #0d1117 !important;
+        background: rgba(0, 0, 0, 0.7);
         color: #c9d1d9 !important;
         border: 1px solid #30363d;
     }

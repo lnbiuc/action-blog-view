@@ -1,9 +1,9 @@
 <template>
-    <div class="occupancy"></div>
+<!--    <div class="occupancy"></div>-->
     <div class="head">
         <div class="logo"><a style="color: #6a67ce" @click="index(1)">Violet</a></div>
-        <div class="links">
-            <span class="link" @click="visible = true">
+        <div class="links" @click="visible = true">
+            <span class="link">
                 <i class="icon outdent" />
             </span>
         </div>
@@ -11,7 +11,7 @@
 
     <el-drawer v-model="visible" :show-close="false" class="drawer" close-on-press-escape="true" size="200">
         <template #header="{ close, titleId, titleClass }">
-            <span class="close" @click="visible = false"> <i class="icon indent" />&nbsp;&nbsp;&nbsp;&nbsp;Cloes </span>
+            <span class="close" @click="visible = false"> <i class="icon indent" />&nbsp;&nbsp;&nbsp;&nbsp;Close </span>
         </template>
         <div class="navs">
             <span
@@ -139,7 +139,7 @@ export default {
 }
 
 .head {
-    position: fixed;
+    //position: fixed;
     top: 0;
     height: 60px;
     width: 100%;
@@ -148,7 +148,7 @@ export default {
     z-index: 10;
     backdrop-filter: saturate(50%) blur(8px);
     background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid #dcdcdc;
 }
 
 .logo {
@@ -199,21 +199,11 @@ export default {
     color: #6a67ce;
 }
 
-.link:hover {
-    color: #4285f4;
-    transform: rotate(180deg);
-    transition: all 0.15s ease;
-}
-
-.close > i:hover {
-    transform: rotate(180deg);
-    transition: all 0.2s ease;
-}
-
 @media (prefers-color-scheme: dark) {
     .head {
-        background: rgba(36, 36, 36, 0.7);
+        background: rgba(0, 0, 0, 0.7);
         box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid #30363d;
     }
 
     .nav {

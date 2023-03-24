@@ -162,9 +162,8 @@ export default {
     padding: 25px 25px;
     border-radius: 7px;
     position: relative;
-    background-color: #fff;
-    min-height: 100vh;
-    border: 1px solid #d0d7de;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #dcdcdc;
     margin-bottom: 20px;
     transition: all 0.3s ease;
 }
@@ -196,7 +195,7 @@ export default {
     margin: 20px auto;
     padding: 15px 15px;
     border-radius: 7px;
-    border: 1px solid #d0d7de;
+    border: 1px solid #dcdcdc;
     transition: all 0.3s ease;
 }
 
@@ -249,18 +248,18 @@ export default {
 
 @media (prefers-color-scheme: dark) {
     .mainContent {
-        background-color: #0d1117 !important;
+        background: rgba(0, 0, 0, 0.7);
         color: #c9d1d9 !important;
         border: 1px solid #30363d;
     }
 
     .oneMessage {
-        background-color: #0e1013;
+        background: rgba(0, 0, 0, 0.7);
         border: 1px solid #30363d;
     }
 
     .oneMessage:hover {
-        background-color: #191a1c !important;
+        background-color: #0f0f0f !important;
     }
 }
 </style>

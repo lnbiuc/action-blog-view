@@ -150,10 +150,11 @@ export default {
 .blogIndex::after,
 .tagCloud::after {
     border-radius: 7px;
-    background-color: #fff;
+    background: rgba(255, 255, 255, 0.7);
     border: 1px solid #dcdcdc;
     margin-top: 20px;
     transition: all 0.3s ease;
+    backdrop-filter: saturate(50%) blur(8px);
 }
 
 .blogIndex:hover,
@@ -167,7 +168,7 @@ export default {
     text-align: center;
     margin: 10px auto;
     padding-bottom: 10px;
-    border-bottom: 1px solid #c9d1d9;
+    border-bottom: 1px solid #dcdcdc;
     font-size: 15px;
 }
 
@@ -231,7 +232,7 @@ export default {
 @media (prefers-color-scheme: dark) {
     .blogIndex,
     .tagCloud {
-        background-color: #0d1117;
+        background: rgba(0, 0, 0, 0.7);
         color: #c9d1d9 !important;
         border: 1px solid #30363d;
     }

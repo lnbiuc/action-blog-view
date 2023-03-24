@@ -21,6 +21,7 @@
         </el-backtop>
     </div>
     <Footer></Footer>
+    <div class="backImg"></div>
     <el-dialog v-model="dialogJumpVisible" title="Tips">
         <h2>
             网站已更换域名至
@@ -69,7 +70,7 @@ export default {
     },
     methods: {
         setHeader() {
-            let width = document.documentElement.clientWidth;
+            const width = document.documentElement.clientWidth;
             if (width < 1000) {
                 this.phone = true;
                 this.pc = false;
@@ -85,7 +86,7 @@ export default {
     created() {
         this.setHeader();
         let domain = document.domain;
-        if (domain == 'beyondhorizon.top') {
+        if (domain === 'beyondhorizon.top') {
             this.dialogJumpVisible = true;
         }
     },
@@ -96,14 +97,26 @@ export default {
 .site {
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh - 50px) !important;
-    background-color: #eee;
+    background: rgba(255, 255, 255, 0.7);
+    min-height: calc(100vh - 80px);
+}
+
+.backImg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../assets/undraw_city_life_gnpr.svg) no-repeat;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.3;
 }
 
 .backTop {
     height: 100%;
     width: 100%;
-    background-color: #fff;
+    background: rgba(255, 255, 255, 0.7);
     text-align: center;
     line-height: 40px;
     border-radius: 10px;
@@ -120,7 +133,7 @@ export default {
 }
 
 .three {
-    max-width: 1200px;
+    max-width: 1200px   ;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -152,10 +165,8 @@ export default {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 20px;
-    min-height: 100vh;
     min-width: 500px;
     align-items: flex-start;
-    margin: 0 auto;
     justify-content: center;
 }
 
@@ -186,6 +197,10 @@ a {
 }
 
 @media screen and (max-width: 1000px) {
+    .site {
+        min-height: calc(100vh - 140px);
+    }
+
     .left,
     .right {
         display: none;

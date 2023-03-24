@@ -79,8 +79,13 @@ router.afterEach((to, from, next) => {
             reject();
         });
         p.then(() => {
+            const width = document.documentElement.clientWidth;
+            let offset = 0;
+            if (width < 1000) {
+                offset = 60;
+            }
             const el = document.getElementById('blogScroll');
-            window.scroll({ top: el.offsetTop });
+            window.scroll({ top: el.offsetTop + offset});
         });
     } else {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });

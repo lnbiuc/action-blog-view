@@ -1,5 +1,5 @@
 <template>
-    <div class="occupancy"></div>
+    <div class="occupancy" v-if="$route.name !== 'home'"></div>
     <div class="head">
         <div class="logo" @click="index(1)">
             <a style="color: #6a67ce"> Violet </a>
@@ -102,7 +102,7 @@ export default {
     z-index: 10;
     backdrop-filter: saturate(50%) blur(8px);
     background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid #dcdcdc;
 }
 
 .logo,
@@ -194,8 +194,9 @@ export default {
 
 @media (prefers-color-scheme: dark) {
     .head {
-        background: rgba(36, 36, 36, 0.7);
+        background: rgba(0, 0, 0, 0.7);
         box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid #30363d;
     }
 
     .nav {

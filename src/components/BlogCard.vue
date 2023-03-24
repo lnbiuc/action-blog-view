@@ -95,9 +95,10 @@ export default {
     z-index: 1;
     margin: 0 auto 20px;
     border-radius: 7px;
-    border: 1px solid #d0d7de;
-    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    background: rgba(255, 255, 255, 0.7);
     transition: all 0.3s ease;
+    backdrop-filter: saturate(50%) blur(8px);
 }
 
 .main {
@@ -107,7 +108,6 @@ export default {
 .cards:hover {
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     transition: all 0.2s ease;
-    transform: scale(1.01);
 }
 
 .blogImg,
@@ -247,9 +247,13 @@ export default {
 
 @media (prefers-color-scheme: dark) {
     .cards {
-        background-color: #0d1117 !important;
         color: #c9d1d9 !important;
         border: 1px solid #30363d;
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .cards:hover {
+        background-color: #0f0f0f !important;
     }
 }
 

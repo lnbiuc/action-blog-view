@@ -4,7 +4,8 @@
             <div :style="{ backgroundImage: 'url(' + data.blog.bgImg + ')' }" v-motion-slide-top class="blogImg">
                 <div>
                     <p class="blogTitle">{{ data.blog.title }}</p>
-                    <p class="blogInfo">作者：{{ data.blog.authorVo.username }}｜发布于：{{ data.blog.releaseTime }}</p>
+                    <p class="blogInfo">作者：{{ data.blog.authorVo.username
+                        }}&nbsp;&nbsp;发布于：{{ data.blog.releaseTime }}</p>
                 </div>
             </div>
             <div class="content" v-motion-slide-bottom>
@@ -30,7 +31,7 @@
                         <li>
                             本文作者：
                             <span style="color: #4285f4"
-                                >{{ data.blog.authorVo.username }}
+                            >{{ data.blog.authorVo.username }}
                                 <router-link to="/about">（联系作者）</router-link>
                             </span>
                         </li>
@@ -48,7 +49,6 @@
                         </li>
                         <li>
                             点击量：<span style="color: #4285f4">{{ data.blog.visitsCount }}</span>
-                            (大部分都是自己点的)
                         </li>
                         <li>
                             本站点采用
@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-        <el-affix :offset="82" class="toc">
+        <el-affix :offset="82" class="toc" target=".article">
             <div class="toc-box" v-motion-slide-right>
                 <md-catalog
                     editor-id="blogEditor"
@@ -75,45 +75,45 @@
     </div>
 </template>
 <script setup>
-import { getArticleByArticleId } from '../axios';
-import MdEditor from 'md-editor-v3';
-import 'md-editor-v3/lib/style.css';
-import { onMounted, ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { getArticleByArticleId } from "../axios";
+import MdEditor from "md-editor-v3";
+import "md-editor-v3/lib/style.css";
+import { onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 
 const data = ref({
-    currentTheme: 'dark',
-    articleId: 'default',
+    currentTheme: "dark",
+    articleId: "default",
     blog: {
-        articleId: '123',
-        authorId: '123',
-        title: '正在加载～～',
-        introduction: '',
-        content: '',
+        articleId: "123",
+        authorId: "123",
+        title: "正在加载～～",
+        introduction: "",
+        content: "LOADING PLEASE WAIT...",
         tagNames: [
             {
-                tagId: '1052',
-                tagName: '正在加载～～',
-            },
+                tagId: "1052",
+                tagName: "正在加载～～"
+            }
         ],
-        releaseTime: '正在加载～～',
-        updateTime: '正在加载～～',
+        releaseTime: "正在加载～～",
+        updateTime: "正在加载～～",
         setTop: false,
         authorVo: {
-            id: '',
-            username: '正在加载～～',
-            email: null,
+            id: "",
+            username: "正在加载～～",
+            email: null
         },
         filingName: {
             id: 2023,
-            filingName: '正在加载～～',
+            filingName: "正在加载～～"
         },
-        bgImg: 'https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/wallhaven-2ygz3x.jpeg',
+        bgImg: "https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/wallhaven-2ygz3x.jpeg"
     },
-    content: '',
+    content: "",
     indexList: {},
-    clipboard: '',
-    nav: {},
+    clipboard: "",
+    nav: {}
 });
 const MdCatalog = MdEditor.MdCatalog;
 
@@ -121,33 +121,32 @@ const route = useRoute();
 data.value.articleId = route.params.articleId;
 getArticleByArticleId(data.value.articleId).then((res) => {
     data.value.blog = res.data.data;
-    document.title = '薇尔薇 | ' + data.value.blog.title;
+    document.title = "薇尔薇 | " + data.value.blog.title;
     document.description = data.value.blog.introduction;
 });
 const scrollElement = document.documentElement;
-// const scrollElement = document.getElementById('toc');
-var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+var isLight = window.matchMedia("(prefers-color-scheme: light)").matches;
 
 if (isLight) {
-    data.value.currentTheme = 'light';
+    data.value.currentTheme = "light";
 } else {
-    data.value.currentTheme = 'dark';
+    data.value.currentTheme = "dark";
 }
 
-const mqList = window.matchMedia('(prefers-color-scheme: light)');
+const mqList = window.matchMedia("(prefers-color-scheme: light)");
 
-mqList.addEventListener('change', (event) => {
+mqList.addEventListener("change", (event) => {
     // is dark mode
-    data.value.currentTheme = 'light';
+    data.value.currentTheme = "light";
     if (event.matches) {
     } else {
         // not dark mode
-        data.value.currentTheme = 'dark';
+        data.value.currentTheme = "dark";
     }
 });
 
 onMounted(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 });
 </script>
 
@@ -160,11 +159,10 @@ onMounted(() => {
 }
 
 .content {
-    padding: 15px 1.5vw;
     z-index: 2;
     border-radius: 7px;
-    background-color: #fff;
-    border: 1px solid #d0d7de;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #dcdcdc;
     scroll-behavior: smooth;
     margin-top: 20px;
     transition: all 0.3s ease;
@@ -188,7 +186,7 @@ onMounted(() => {
     background-position: center center;
     background-repeat: no-repeat;
     z-index: 1;
-    border: 1px solid #d0d7de;
+    border: 1px solid #dcdcdc;
     border-radius: 7px;
     width: 100%;
     text-align: center;
@@ -212,17 +210,17 @@ onMounted(() => {
     padding: 0 100px 0;
     font-size: 40px;
     color: #fff;
-    text-shadow: 1px 1px 2px #17325b;
+    text-shadow: 1px 1px 2px black;
 }
 
 .blogInfo {
     font-size: 15px;
     color: #fff;
-    text-shadow: 1px 1px 2px #17325b;
+    text-shadow: 1px 1px 2px black;
 }
 
 .md-editor-dark {
-    --md-bk-color: #0d1117 !important;
+    --md-bk-color: rgba(0, 0, 0, 0.7) !important;
 }
 
 @media screen and (max-width: 1000px) {
@@ -230,6 +228,7 @@ onMounted(() => {
         /* width: 95vw; */
         min-width: 0;
     }
+
     .content {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
@@ -269,7 +268,7 @@ onMounted(() => {
 
 @media (prefers-color-scheme: dark) {
     .content {
-        background-color: #0d1117 !important;
+        background: rgba(0, 0, 0, 0.7);
         color: #c9d1d9 !important;
     }
 
@@ -279,37 +278,38 @@ onMounted(() => {
     }
 
     .toc-box {
-        background-color: #0d1117 !important;
+        background: rgba(0, 0, 0, 0.7) !important;
         color: #c9d1d9 !important;
         border: 1px solid #30363d !important;
     }
 
+    /* 滚动条有滑块的轨道部分 */
     ::-webkit-scrollbar-track-piece {
-        background-color: black;
+        background-color: black !important;
         border-radius: 5px;
     }
 
+    /* 滚动条滑块(竖向:vertical 横向:horizontal) */
     ::-webkit-scrollbar-thumb {
-        cursor: pointer;
-        background-color: #8583d5;
-        border-radius: 100px;
+        background-color: rgb(30, 30, 30) !important;
     }
+
     /* 滚动条滑块hover */
     ::-webkit-scrollbar-thumb:hover {
-        background-color: #6a67ce;
+        background-color: rgb(50, 50, 50) !important;
     }
 }
 
 .toc-box {
     display: flex;
     width: 200px;
-    max-height: calc(100vh - 100px);
+    max-height: calc(100vh - 180px);
     border-radius: 7px;
     flex-direction: column;
     padding: 10px 20px;
     z-index: 10;
-    border: 1px solid #d0d7de;
-    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    background: rgba(255, 255, 255, 0.7);
     margin-left: 20px;
     transition: all 0.3s ease;
     overflow-y: auto;
@@ -321,19 +321,22 @@ onMounted(() => {
 
 /* 滚动条有滑块的轨道部分 */
 ::-webkit-scrollbar-track-piece {
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 5px;
 }
+
 /* 滚动条滑块(竖向:vertical 横向:horizontal) */
 ::-webkit-scrollbar-thumb {
     cursor: pointer;
-    background-color: rgba(159, 158, 210, 0.4);
+    background-color: rgb(230, 230, 230);
     border-radius: 100px;
 }
+
 /* 滚动条滑块hover */
 ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(146, 143, 222);
+    background-color: rgb(200, 200, 200);
 }
+
 /* 同时有垂直和水平滚动条时交汇的部分 */
 ::-webkit-scrollbar-corner {
     display: block; /* 修复交汇时出现的白块 */

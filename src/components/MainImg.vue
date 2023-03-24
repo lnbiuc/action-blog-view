@@ -38,8 +38,13 @@ export default {
     },
     methods: {
         scrollToBlog() {
-            var el = document.getElementById('blogScroll');
-            window.scroll({ top: el.offsetTop, behavior: 'smooth' });
+            const width = document.documentElement.clientWidth;
+            let offset = 0;
+            if (width < 1000) {
+                offset = 60;
+            }
+            const el = document.getElementById('blogScroll');
+            window.scroll({ top: el.offsetTop + offset, behavior: 'smooth' });
         },
         // 初始化
         init() {
@@ -67,7 +72,7 @@ export default {
                 this.init();
                 this.timer = setTimeout(this.keep, 20000);
             } else {
-                clearTimeout(timer);
+                clearTimeout(this.timer);
             }
         },
     },
@@ -113,7 +118,7 @@ img {
 .wobble-horizontal {
     background-size: cover !important;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: 100vh;
     position: relative;
     background: url('https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/wallhaven-2ygz3x.jpeg') center center
         no-repeat;

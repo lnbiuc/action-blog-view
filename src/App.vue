@@ -4,7 +4,7 @@
 
 <style>
 ::-webkit-scrollbar {
-    width: 7px;
+    width: 8px;
 }
 
 /* 滚动条有滑块的轨道部分 */
@@ -41,7 +41,7 @@
 }
 
 .el-drawer {
-    background-color: #fff !important;
+    background: rgba(255, 255, 255, 0.7) !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -84,7 +84,7 @@
     .el-input__wrapper,
     .el-input__inner,
     .el-textarea__inner {
-        background-color: #0d1117 !important;
+        background: rgba(0, 0, 0, 0.7) !important;
     }
 
     .el-pagination__editor,
@@ -116,14 +116,23 @@
     .el-dialog__title {
         color: #fff !important;
     }
+
+    body {
+        background-color: #020407 !important;
+    }
 }
 
 html,
 body {
     color: #333;
-    background: #eee;
+    font-size: 16px;
+}
 
-    min-height: calc(100vh - 50px) !important;
+@media screen and (max-width: 1000px) {
+    html,
+    body {
+        font-size: 10px;
+    }
 }
 
 p::selection,
@@ -147,5 +156,23 @@ b::selection {
 
 img::selection {
     background-color: greenyellow;
+}
+
+.md-editor-catalog-active>span {
+    color: #6a67ce !important;
+    font-weight: 600;
+}
+
+.md-editor-catalog-link>span:hover {
+    color: #1e90ff !important;
+}
+
+.md-editor-preview {
+    padding: 15px 1vw !important;
+
+}
+
+.el-drawer__header {
+    margin-bottom: 0;
 }
 </style>

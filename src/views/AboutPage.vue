@@ -1,5 +1,5 @@
 <template>
-    <div class="mainContent blogCardContainer">
+    <div class="mainContent blogCardContainer" v-motion-slide-top>
         <p class="head">About</p>
         <div class="secondContent">
             <md-editor
@@ -68,14 +68,13 @@ mqList.addEventListener('change', (event) => {
 .mainContent::after,
 .mainContent::before {
     width: 100%;
-    padding: 25px 25px;
     border-radius: 7px;
     position: relative;
-    background-color: #fff;
-    min-height: 30vh;
-    border: 1px solid #d0d7de;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #dcdcdc;
     margin-bottom: 20px;
     transition: all 0.3s ease;
+    padding: 20px 0;
 }
 
 .mainContent:hover {
@@ -99,7 +98,7 @@ img {
 }
 
 .md-editor-dark {
-    --md-bk-color: #0d1117 !important;
+    --md-bk-color: rgba(0, 0, 0, 0.7) !important;
 }
 
 @media screen and (max-width: 1000px) {
@@ -129,7 +128,7 @@ h4 {
 
 @media (prefers-color-scheme: dark) {
     .mainContent {
-        background-color: #0d1117 !important;
+        background: rgba(0, 0, 0, 0.7);
         color: #c9d1d9 !important;
         border: 1px solid #30363d;
     }
