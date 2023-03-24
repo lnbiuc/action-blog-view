@@ -181,7 +181,7 @@ export default {
 }
 
 .message {
-    min-height: 70vh;
+    min-height: 30vh;
 }
 
 .form {

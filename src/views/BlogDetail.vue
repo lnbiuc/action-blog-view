@@ -125,7 +125,7 @@ getArticleByArticleId(data.value.articleId).then((res) => {
     document.description = data.value.blog.introduction;
 });
 const scrollElement = document.documentElement;
-
+// const scrollElement = document.getElementById('toc');
 var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
 if (isLight) {
@@ -283,11 +283,27 @@ onMounted(() => {
         color: #c9d1d9 !important;
         border: 1px solid #30363d !important;
     }
+
+    ::-webkit-scrollbar-track-piece {
+        background-color: black;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        cursor: pointer;
+        background-color: #8583d5;
+        border-radius: 100px;
+    }
+    /* 滚动条滑块hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #6a67ce;
+    }
 }
 
 .toc-box {
     display: flex;
     width: 200px;
+    max-height: calc(100vh - 100px);
     border-radius: 7px;
     flex-direction: column;
     padding: 10px 20px;
@@ -296,6 +312,31 @@ onMounted(() => {
     background-color: #fff;
     margin-left: 20px;
     transition: all 0.3s ease;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* 滚动条有滑块的轨道部分 */
+::-webkit-scrollbar-track-piece {
+    background-color: #fff;
+    border-radius: 5px;
+}
+/* 滚动条滑块(竖向:vertical 横向:horizontal) */
+::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background-color: rgba(159, 158, 210, 0.4);
+    border-radius: 100px;
+}
+/* 滚动条滑块hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(146, 143, 222);
+}
+/* 同时有垂直和水平滚动条时交汇的部分 */
+::-webkit-scrollbar-corner {
+    display: block; /* 修复交汇时出现的白块 */
 }
 
 .toc-box:hover {

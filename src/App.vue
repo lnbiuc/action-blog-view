@@ -15,7 +15,7 @@
 /* 滚动条滑块(竖向:vertical 横向:horizontal) */
 ::-webkit-scrollbar-thumb {
     cursor: pointer;
-    background-color: #b3b1d8;
+    background-color: #8583d5;
     border-radius: 0;
 }
 /* 滚动条滑块hover */
@@ -45,6 +45,10 @@
 }
 
 @media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar-track-piece {
+        background-color: black;
+        border-radius: 5px;
+    }
     #app {
         background-color: #020407 !important;
     }
