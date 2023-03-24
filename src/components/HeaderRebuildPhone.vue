@@ -139,7 +139,6 @@ export default {
 }
 
 .head {
-    //position: fixed;
     top: 0;
     height: 60px;
     width: 100%;
