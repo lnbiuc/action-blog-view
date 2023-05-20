@@ -23,7 +23,7 @@
                     Category</span
                 >
             </div>
-            <div class="nav-div" @click="index(6)">
+            <div class="nav-div" @click="index(6)" v-if="false">
                 <span class="nav">
                     <i class="icon comment alternate" />
                     Message</span

@@ -8,7 +8,7 @@
                 </div>
                 <div class="info" style="cursor: pointer">
                     <span class="infoTitle">{{ f.title }}</span>
-                    <p>{{ f.description }}</p>
+                    <p style="font-size: 0.75rem">{{ f.description }}</p>
                 </div>
             </div>
         </div>
@@ -22,8 +22,8 @@
             <ul>
                 <li>昵称：violet</li>
                 <li>描述：violet的摸鱼日志。</li>
-                <li>站点地址：https://www.beyondhorizon.top/</li>
-                <li>头像URL：https://www.beyondhorizon.top/favicon.ico</li>
+                <li>站点地址：https://vio.vin/</li>
+                <li>头像URL：https://vio.vin/favicon.ico</li>
             </ul>
             <h3>添加条件：</h3>
             <ul>

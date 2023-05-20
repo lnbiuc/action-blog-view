@@ -45,6 +45,7 @@
                 Category</span
             >
             <span
+                v-if="false"
                 class="nav"
                 @click="
                     index(6);
