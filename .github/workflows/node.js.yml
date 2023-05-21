@@ -49,7 +49,7 @@ jobs:
         cos_region: ap-shanghai
         cos_accelerate: false
         local_path: ./dist
-        remote_path: /tmp
+        remote_path: /blog
         clean: true
     - name: Tencent CDN
       uses: keithnull/tencent-cloud-cdn-purge-cache@v1.0
