@@ -52,7 +52,7 @@ jobs:
         remote_path: /tmp
         clean: true
     - name: Tencent CDN
-      uses: keithnull/tencent-cloud-cdn-purge-cache@latest
+      uses: keithnull/tencent-cloud-cdn-purge-cache@v1.0
       env:
         SECRET_ID: ${{ secrets.SECRET_ID}}
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
