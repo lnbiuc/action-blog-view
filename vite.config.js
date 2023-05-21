@@ -23,27 +23,13 @@ export default defineConfig({
         splitVendorChunkPlugin(),
         viteCompression(),
     ],
+    base: 'https://static.vio.vin/blog/',
     build: {
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
             },
             output: {
-                // manualChunks: {
-                //     tdesign: ['tdesign-vue-next/es'],
-                //     tdesign_2: ['@popperjs/core/dist/index.mjs'],
-                //     element: ['element-plus'],
-                //     emoji: ['markdown-it-emoji'],
-                //     markdownIt: ['markdown-it'],
-                //     ant: ['ant-design-vue/es'],
-                //     unorm: ['unorm/lib/unorm.js'],
-                //     uslug: ['uslug'],
-                //     route: ['vue-router/dist/vue-router.mjs'],
-                //     ant_icon: ['@ant-design/icons-svg'],
-                //     axios: ['axios'],
-                //     hljs: ['highlight.js'],
-                // },
-                // 最小化拆分包
                 manualChunks: (id) => {
                     if (id.includes('node_modules')) {
                         return id.toString().split('node_modules/')[1].split('/')[0].toString();
@@ -55,6 +41,11 @@ export default defineConfig({
                 element: ['element-plus'],
                 unorm: ['unorm/lib/unorm.js'],
                 axios: ['axios'],
+                // 使用 resolveUrl 函数将相对路径转换为绝对路径
+                assetUrl: (assetInfo) => {
+                    const { name, ext } = assetInfo;
+                    return `https://static.vio.vin/blog/${ext}/${name}.${ext}`;
+                },
             },
         },
     },
