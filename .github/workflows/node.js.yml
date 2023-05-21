@@ -40,5 +40,21 @@ jobs:
           rm -rf ./index.html ./index.html.gz ./css ./js
         scp: |
           ./dist/* => /data/nginx/html
-        last_ssh: |
-          ls
+    - name: Tencent COS
+      uses: sylingd/tencent-cos-and-cdn-action@latest
+      with:
+        secret_id: ${{ secrets.SECRET_ID}}
+        secret_key: ${{ secrets.SECRET_KEY }}
+        cos_bucket: ${{ secrets.BUCKET_NAME }}
+        cos_region: ap-shanghai
+        cos_accelerate: false
+        local_path: ./dist
+        remote_path: /tmp
+        clean: true
+    - name: Tencent CDN
+      uses: keithnull/tencent-cloud-cdn-purge-cache@latest
+      env:
+        SECRET_ID: ${{ secrets.SECRET_ID}}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        PATHS: "https://vio.vin/,https://static.vio.vin/"
+        FLUSH_TYPE: "flush"
