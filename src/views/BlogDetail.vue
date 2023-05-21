@@ -108,7 +108,7 @@ const data = ref({
             id: 2023,
             filingName: "正在加载～～"
         },
-        bgImg: "https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/wallhaven-2ygz3x.jpeg"
+        bgImg: "https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/wallhaven-2ygz3x.jpeg/default"
     },
     content: "",
     indexList: {},

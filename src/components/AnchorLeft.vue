@@ -8,7 +8,7 @@
                 <el-avatar
                     :size="150"
                     class="anchorImg"
-                    src="https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/squre-modified.png"
+                    src="https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/squre-modified.png/default"
                 />
                 <p class="name">violet</p>
                 <p class="introduction" style="text-indent: 2em">

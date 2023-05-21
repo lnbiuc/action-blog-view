@@ -21,7 +21,7 @@ export default {
     data() {
         return {
             // img: "https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/a2551175c0ffbca69be319962e9a48a66d1efae5.jpeg",
-            img: 'https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/a2551175c0ffbca69be319962e9a48a66d1efae5.jpeg',
+            img: 'https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/a2551175c0ffbca69be319962e9a48a66d1efae5.jpeg/default',
             obj: {
                 output: '',
                 isEnd: false,
@@ -120,7 +120,7 @@ img {
     width: 100%;
     height: 100vh;
     position: relative;
-    background: url('https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/wallhaven-2ygz3x.jpeg') center center
+    background: url('https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/wallhaven-2ygz3x.jpeg/default') center center
         no-repeat;
     z-index: 1;
     min-height: 300px;
