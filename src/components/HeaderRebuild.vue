@@ -7,7 +7,7 @@
         <div class="navs">
             <div class="nav-div" @click="index(1)">
                 <span class="nav">
-                    <i class="icon home" />
+<!--                    <i class="icon home" />-->
                     Index</span
                 >
             </div>
@@ -19,25 +19,25 @@
             </div>
             <div class="nav-div" @click="index(3)">
                 <span class="nav">
-                    <i class="icon bookmark" />
+<!--                    <i class="icon bookmark" />-->
                     Category</span
                 >
             </div>
             <div class="nav-div" @click="index(6)" v-if="false">
                 <span class="nav">
-                    <i class="icon comment alternate" />
+<!--                    <i class="icon comment alternate" />-->
                     Message</span
                 >
             </div>
             <div class="nav-div" @click="index(7)">
                 <span class="nav">
-                    <i class="icon linkify" />
+<!--                    <i class="icon linkify" />-->
                     Friends</span
                 >
             </div>
             <div class="nav-div" @click="index(4)">
                 <span class="nav">
-                    <i class="icon info" />
+<!--                    <i class="icon info" />-->
                     About</span
                 >
             </div>

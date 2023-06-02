@@ -1,4 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import Home from '../views/Home.vue';
+import BlogDetail from "../views/BlogDetail.vue";
+import TimeLine from "../views/TimeLine.vue";
+import Filing from "../views/Filing.vue";
+import AboutPage from "../views/AboutPage.vue";
+import Search from "../views/Search.vue";
+import SearchDetail from "../views/SearchDetail.vue";
+import Message from "../views/Message.vue";
+import Friends from "../views/Friends.vue";
 const routes = [
     {
         path: '/:catchAll(.*)',
@@ -7,61 +16,61 @@ const routes = [
     {
         path: '/',
         name: 'index', //index包含header footer等需要在每个页面都会显示的东西
-        component: () => import('../views/Index.vue'),
+        component: import('../views/Index.vue'),
         redirect: '/index',
         children: [
             {
                 path: '/index',
                 name: 'home',
-                component: () => import('../views/Home.vue'),
+                component: Home,
                 meta: { title: '薇尔薇 | Index' },
             },
             {
                 path: '/article/:articleId',
                 name: 'BlogDetail',
-                component: () => import('../views/BlogDetail.vue'),
+                component: BlogDetail,
                 meta: { title: '薇尔薇 | Article～(՞• •՞)' },
             },
             {
                 path: '/timeLine',
                 name: 'TimeLine',
-                component: () => import('../views/TimeLine.vue'),
+                component: TimeLine,
                 meta: { title: '薇尔薇 | Time Line～o(´^｀)o' },
             },
             {
                 path: '/filing',
                 name: 'Filing',
-                component: () => import('../views/Filing.vue'),
+                component: Filing,
                 meta: { title: '薇尔薇 | Category～/ᐠ｡ꞈ｡ᐟ\\' },
             },
             {
                 path: '/about',
                 name: 'About',
-                component: () => import('../views/AboutPage.vue'),
+                component: AboutPage,
                 meta: { title: '薇尔薇 | About～*⸜( •ᴗ• )⸝*' },
             },
             {
                 path: '/search',
                 name: 'Search',
-                component: () => import('../views/Search.vue'),
+                component: Search,
                 meta: { title: '薇尔薇 | Search🔍～つ♡⊂' },
             },
             {
                 path: '/result',
                 name: 'Result',
-                component: () => import('../views/SearchDetail.vue'),
+                component: SearchDetail,
                 meta: { title: '薇尔薇 | Search Result～ ̗̀(ᵔ⌔ᵔ)' },
             },
-            {
-                path: '/message',
-                name: 'Message',
-                component: () => import('../views/Message.vue'),
-                meta: { title: '薇尔薇 | Message～(՞• •՞)～' },
-            },
+            // {
+            //     path: '/message',
+            //     name: 'Message',
+            //     component: Message,
+            //     meta: { title: '薇尔薇 | Message～(՞• •՞)～' },
+            // },
             {
                 path: '/friends',
                 name: 'Friends',
-                component: () => import('../views/Friends.vue'),
+                component: Friends,
                 meta: { title: '薇尔薇 | Friends～ヾ(￣▽￣)' },
             },
         ],
