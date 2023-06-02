@@ -8,12 +8,12 @@
             <div class="nav-div" @click="index(1)">
                 <span class="nav">
 <!--                    <i class="icon home" />-->
-                    Index</span
+                    Home</span
                 >
             </div>
             <div class="nav-div" @click="index(2)">
                 <span class="nav">
-                    <i class="icon archive" />
+<!--                    <i class="icon archive" />-->
                     TimeLine</span
                 >
             </div>

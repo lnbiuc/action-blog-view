@@ -21,8 +21,8 @@
                     visible = false;
                 "
             >
-                <i class="icon home" />
-                Index</span
+<!--                <i class="icon home" />-->
+                Home</span
             >
             <span
                 class="nav"
@@ -31,7 +31,7 @@
                     visible = false;
                 "
             >
-                <i class="icon archive" />
+<!--                <i class="icon archive" />-->
                 Time Line</span
             >
             <span
@@ -41,7 +41,7 @@
                     visible = false;
                 "
             >
-                <i class="icon bookmark" />
+<!--                <i class="icon bookmark" />-->
                 Category</span
             >
             <span
@@ -52,7 +52,7 @@
                     visible = false;
                 "
             >
-                <i class="icon comment alternate" />
+<!--                <i class="icon comment alternate" />-->
                 Message</span
             >
             <span
@@ -62,7 +62,7 @@
                     visible = false;
                 "
             >
-                <i class="icon linkify" />
+<!--                <i class="icon linkify" />-->
                 Friends</span
             >
             <span
@@ -72,7 +72,7 @@
                     visible = false;
                 "
             >
-                <i class="icon info" />
+<!--                <i class="icon info" />-->
                 About</span
             >
             <span
