@@ -8,7 +8,9 @@
                 <AnchorLeft />
             </div>
             <div class="middle">
-                <router-view></router-view>
+                <keep-alive>
+                    <router-view></router-view>
+                </keep-alive>
             </div>
             <div v-if="$route.name !== 'BlogDetail'" class="right">
                 <AnchorRight />

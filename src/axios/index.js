@@ -25,42 +25,42 @@ axios.interceptors.response.use((response) => {
     return response;
 });
 
-export function getBlogList(pageNumber, pageSize) {
+export async function getBlogList(pageNumber, pageSize) {
     return axios({
         url: './articles/title?pageNumber=' + pageNumber + '&pageSize=' + pageSize,
         method: 'GET',
     });
 }
 
-export function getCountInfo() {
+export async function getCountInfo() {
     return axios({
         url: './count',
         method: 'GET',
     });
 }
 
-export function getArticleByArticleId(articleId) {
+export async function getArticleByArticleId(articleId) {
     return axios({
         url: './articles/views/' + articleId,
         method: 'GET',
     });
 }
 
-export function getTimeLineData() {
+export async function getTimeLineData() {
     return axios({
         url: './articles/time',
         method: 'GET',
     });
 }
 
-export function getFilingInfo() {
+export async function getFilingInfo() {
     return axios({
         url: './filing/filing',
         method: 'GET',
     });
 }
 
-export function searchTitle(title) {
+export async function searchTitle(title) {
     return axios({
         url: './search/title',
         method: 'GET',
@@ -70,7 +70,7 @@ export function searchTitle(title) {
     });
 }
 
-export function searchTagName(tagName) {
+export async function searchTagName(tagName) {
     return axios({
         url: './search/tagName',
         method: 'GET',
@@ -80,7 +80,7 @@ export function searchTagName(tagName) {
     });
 }
 
-export function searchFilingName(filingName) {
+export async function searchFilingName(filingName) {
     return axios({
         url: './search/filingName',
         method: 'GET',
@@ -90,7 +90,7 @@ export function searchFilingName(filingName) {
     });
 }
 
-export function searchFilingId(filingId) {
+export async function searchFilingId(filingId) {
     let formData = new FormData();
     formData.append('filingId', filingId);
     return axios({
@@ -102,7 +102,7 @@ export function searchFilingId(filingId) {
     });
 }
 
-export function searchTagId(tagId) {
+export async function searchTagId(tagId) {
     return axios({
         url: './search/tagId',
         method: 'GET',
@@ -112,14 +112,14 @@ export function searchTagId(tagId) {
     });
 }
 
-export function getTag() {
+export async function getTag() {
     return axios({
         url: './tag/all',
         method: 'GET',
     });
 }
 
-export function getMessage(current, size) {
+export async function getMessage(current, size) {
     return axios({
         url: './message/get',
         method: 'GET',
@@ -130,7 +130,7 @@ export function getMessage(current, size) {
     });
 }
 
-export function sendMessage(qq, msg) {
+export async function sendMessage(qq, msg) {
     let formData = new FormData();
     formData.append('qqNumber', qq);
     formData.append('content', msg);
@@ -141,14 +141,14 @@ export function sendMessage(qq, msg) {
     });
 }
 
-export function getAnnoInfo() {
+export async function getAnnoInfo() {
     return axios({
         url: './anno/get',
         method: 'GET',
     });
 }
 
-export function getRandomBlog(size) {
+export async function getRandomBlog(size) {
     return axios({
         url: './articles/random',
         method: 'GET',
@@ -158,14 +158,14 @@ export function getRandomBlog(size) {
     });
 }
 
-export function getCustomConfig() {
+export async function getCustomConfig() {
     return axios({
         url: './me/get',
         method: 'GET',
     });
 }
 
-export function getFriendLink() {
+export async function getFriendLink() {
     return axios({
         url: './friends/get',
         method: 'GET',
