@@ -3,7 +3,8 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
 // axios.defaults.baseURL = 'http://localhost:8888/api';
-axios.defaults.baseURL = 'https://beyondhorizon.top/api/';
+// axios.defaults.baseURL = 'https://beyondhorizon.top/api/';
+axios.defaults.baseURL = 'https://blog.vio.vin/api/';
 
 NProgress.configure({
     showSpinner: false,
