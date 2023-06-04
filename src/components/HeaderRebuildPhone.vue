@@ -4,7 +4,7 @@
         <div class="logo"><a style="color: #6a67ce" @click="index(1)">Violet</a></div>
         <div class="links" @click="visible = true">
             <span class="link">
-                <i class="icon outdent" />
+                <i class="icon outdent" style="display: flex;flex-direction: column;justify-content: center;align-items: center"/>
             </span>
         </div>
     </div>
@@ -82,7 +82,7 @@
                     visible = false;
                 "
             >
-                <i class="icon search" />
+<!--                <i class="icon search" />-->
                 Search</span
             >
             <span
@@ -92,7 +92,7 @@
                     visible = false;
                 "
             >
-                <i class="icon github" />
+<!--                <i class="icon github" />-->
                 Github
             </span>
         </div>

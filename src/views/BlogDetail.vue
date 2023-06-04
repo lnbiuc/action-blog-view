@@ -80,6 +80,7 @@ import MdEditor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
+import { ElLoading } from "element-plus";
 
 const data = ref({
     currentTheme: "dark",
@@ -119,10 +120,16 @@ const MdCatalog = MdEditor.MdCatalog;
 
 const route = useRoute();
 data.value.articleId = route.params.articleId;
+const loading = ElLoading.service({
+  lock: true,
+  text: "Loading, please wait...",
+  background: "rgba(0, 0, 0, 0.7)"
+});
 getArticleByArticleId(data.value.articleId).then((res) => {
     data.value.blog = res.data.data;
     document.title = "薇尔薇 | " + data.value.blog.title;
     document.description = data.value.blog.introduction;
+    loading.close();
 });
 const scrollElement = document.documentElement;
 var isLight = window.matchMedia("(prefers-color-scheme: light)").matches;
