@@ -37,7 +37,7 @@
     </div>
 </template>
 <script>
-import { getRandomBlog, getTag } from '../axios';
+import { getTag } from '../axios';
 import { sliderStore, useSearchStore } from '../stores/counter';
 
 export default {

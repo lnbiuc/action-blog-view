@@ -9,7 +9,7 @@
                 v-model="data.content"
                 :theme="data.currentTheme"
                 previewOnly
-                preview-theme="smart-blue"
+                preview-theme="github"
             />
         </div>
     </div>

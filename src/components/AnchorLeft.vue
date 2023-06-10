@@ -11,9 +11,9 @@
                     src="https://typora-1308549476.cos.ap-nanjing.myqcloud.com/img/squre-modified.png/default"
                 />
                 <p class="name">violet</p>
-                <p class="introduction" style="text-indent: 2em">
-                    什么？你左大括号不换行？天纳！这简直相当于你吃甜豆腐脑一样！！
-                </p>
+<!--                <p class="introduction" style="">-->
+<!--                    什么？你左大括号不换行？天纳！这简直相当于你吃甜豆腐脑一样！！-->
+<!--                </p>-->
             </div>
             <div class="aboutInfo">
                 <a class="svg" href="https://github.com/lnbiuc">
@@ -51,7 +51,7 @@
                         <i class="icon red calendar alternate outline" />
                         Run Time
                     </div>
-                    <span> {{ count.existTime }} Day </span>
+                    <span> {{ count.existTime }} Days </span>
                 </div>
                 <div>
                     <div>
