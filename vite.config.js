@@ -23,7 +23,7 @@ export default defineConfig({
         splitVendorChunkPlugin(),
         viteCompression(),
     ],
-    // base: 'https://static.vio.vin/blog/',
+    base: 'https://static.vio.vin/blog/',
     build: {
         rollupOptions: {
             input: {

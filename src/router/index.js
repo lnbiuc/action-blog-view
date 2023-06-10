@@ -1,4 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
+
+import Home from '../views/Home.vue';
+import TimeLine from '../views/TimeLine.vue';
+import Filing from '../views/Filing.vue'
+import AboutPage from '../views/AboutPage.vue'
+import Search from '../views/Search.vue'
+import SearchDetail from '../views/SearchDetail.vue'
+import Friends from '../views/Friends.vue'
 const routes = [
     {
         path: '/:catchAll(.*)',
@@ -13,7 +21,7 @@ const routes = [
             {
                 path: '/index',
                 name: 'home',
-                component: () => import('../views/Home.vue'),
+                component: Home,
                 meta: { title: '薇尔薇 | Index' },
             },
             {
@@ -25,31 +33,31 @@ const routes = [
             {
                 path: '/timeLine',
                 name: 'TimeLine',
-                component: () => import('../views/TimeLine.vue'),
+                component: TimeLine,
                 meta: { title: '薇尔薇 | Time Line～o(´^｀)o' },
             },
             {
                 path: '/filing',
                 name: 'Filing',
-                component: () => import('../views/Filing.vue'),
+                component: Filing,
                 meta: { title: '薇尔薇 | Category～/ᐠ｡ꞈ｡ᐟ\\' },
             },
             {
                 path: '/about',
                 name: 'About',
-                component: () => import('../views/AboutPage.vue'),
+                component: AboutPage,
                 meta: { title: '薇尔薇 | About～*⸜( •ᴗ• )⸝*' },
             },
             {
                 path: '/search',
                 name: 'Search',
-                component: () => import('../views/Search.vue'),
+                component: Search,
                 meta: { title: '薇尔薇 | Search🔍～つ♡⊂' },
             },
             {
                 path: '/result',
                 name: 'Result',
-                component: () => import('../views/SearchDetail.vue'),
+                component: SearchDetail,
                 meta: { title: '薇尔薇 | Search Result～ ̗̀(ᵔ⌔ᵔ)' },
             },
             {
@@ -61,7 +69,7 @@ const routes = [
             {
                 path: '/friends',
                 name: 'Friends',
-                component: () => import('../views/Friends.vue'),
+                component: Friends,
                 meta: { title: '薇尔薇 | Friends～ヾ(￣▽￣)' },
             },
         ],
