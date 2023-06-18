@@ -1,5 +1,5 @@
 <template>
-    <div class="block" v-motion-slide-right>
+    <div class="block">
         <!-- <div v-if="!($route.name === 'BlogDetail')"
              class="blogIndex">
             <div class="indexHead">

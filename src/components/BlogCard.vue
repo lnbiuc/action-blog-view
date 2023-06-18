@@ -1,13 +1,6 @@
 <template>
     <div class="main">
         <div v-for="blog in blogs" :key="blog.articleId" class="cards">
-            <!-- <div style="position:relative;">
-                <div style="position:absolute;left: 14px;top: -20px;font-size: 10px">
-                    <a class="ui blue ribbon label filing"
-                       @click="toFiling(blog.filingName.id,blog.filingName.filingName)">
-                        {{ blog.filingName.filingName }}</a>
-                </div>
-            </div> -->
             <div :style="{ 'background-image': 'url(' + blog.bgImg + ')' }" class="blogImg">
                 <span class="toBlog" style="cursor: pointer" @click="jump(blog.articleId)">Read More</span>
                 <p class="blogTitle">{{ blog.title }}</p>
@@ -15,7 +8,7 @@
             <div class="blogInfo">
                 <div class="left">
                     <div class="introduction">
-                        <i class="paperclip blue icon" />&nbsp;
+<!--                        <i class="paperclip blue icon" />&nbsp;-->
                         {{ blog.introduction }}
                     </div>
                     <div class="time">

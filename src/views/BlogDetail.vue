@@ -1,14 +1,14 @@
 <template>
     <div class="mainContent">
         <div class="article">
-            <div :style="{ backgroundImage: 'url(' + data.blog.bgImg + ')' }" v-motion-slide-top class="blogImg">
+            <div :style="{ backgroundImage: 'url(' + data.blog.bgImg + ')' }"  class="blogImg">
                 <div>
                     <p class="blogTitle">{{ data.blog.title }}</p>
                     <p class="blogInfo">作者：{{ data.blog.authorVo.username
                         }}&nbsp;&nbsp;发布于：{{ data.blog.releaseTime }}</p>
                 </div>
             </div>
-            <div class="content" v-motion-slide-bottom>
+            <div class="content">
                 <el-divider class="divider">
                     <p class="divider">CONTENT</p>
                 </el-divider>
@@ -62,7 +62,7 @@
             </div>
         </div>
         <el-affix :offset="82" class="toc" target=".article">
-            <div class="toc-box" v-motion-slide-right>
+            <div class="toc-box">
                 <md-catalog
                     editor-id="blogEditor"
                     :offsetTop="75"
@@ -215,7 +215,7 @@ onMounted(() => {
 
 .blogTitle {
     padding: 0 100px 0;
-    font-size: 40px;
+    font-size: 30px;
     color: #fff;
     text-shadow: 1px 1px 2px black;
 }
@@ -310,11 +310,11 @@ onMounted(() => {
 .toc-box {
     display: flex;
     width: 200px;
-    max-height: calc(100vh - 180px);
+    max-height: calc(100vh - 120px);
     border-radius: 7px;
     flex-direction: column;
     padding: 10px 20px;
-    z-index: 10;
+    z-index: 0;
     border: 1px solid #dcdcdc;
     background: rgba(255, 255, 255, 0.7);
     margin-left: 20px;

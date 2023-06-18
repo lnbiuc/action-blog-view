@@ -1,5 +1,5 @@
 <template>
-    <div class="block" v-motion-slide-left>
+    <div class="block">
         <div class="about">
             <div class="anchorHeader">
                 <p><i class="icon user" style="color: #4285f4" />&nbsp;Author</p>

@@ -1,5 +1,5 @@
 <template>
-    <div class="mainContent blogCardContainer" v-motion-slide-top>
+    <div class="mainContent blogCardContainer" >
         <p class="title">Message</p>
         <div class="message">
             <div class="oneMessage" v-for="msg in msgs" :key="msg.id">

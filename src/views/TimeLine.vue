@@ -1,5 +1,5 @@
 <template>
-    <div class="mainContent" v-motion-slide-top>
+    <div class="mainContent" >
         <p class="head">Time Line</p>
         <div class="ui attached segment">
             <div class="timeline">

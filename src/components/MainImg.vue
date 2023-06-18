@@ -1,5 +1,5 @@
 <template>
-    <div class="wobble-horizontal" v-motion-slide-top>
+    <div class="wobble-horizontal" >
         <div class="printContent">
             {{ obj.output }}
             <span class="easy-typed-cursor">_</span>

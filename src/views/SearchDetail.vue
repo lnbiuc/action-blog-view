@@ -1,5 +1,5 @@
 <template>
-    <div class="mainContent" v-motion-slide-top>
+    <div class="mainContent" >
         <div class="head">
             <p>
                 {{ type }}&nbsp;<span style="color: #4285f4">{{ searchName }}</span>

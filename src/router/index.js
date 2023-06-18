@@ -7,6 +7,7 @@ import AboutPage from '../views/AboutPage.vue'
 import Search from '../views/Search.vue'
 import SearchDetail from '../views/SearchDetail.vue'
 import Friends from '../views/Friends.vue'
+import BlogDetail from "../views/BlogDetail.vue";
 const routes = [
     {
         path: '/:catchAll(.*)',
@@ -27,7 +28,7 @@ const routes = [
             {
                 path: '/article/:articleId',
                 name: 'BlogDetail',
-                component: () => import('../views/BlogDetail.vue'),
+                component: BlogDetail,
                 meta: { title: '薇尔薇 | Article～(՞• •՞)' },
             },
             {

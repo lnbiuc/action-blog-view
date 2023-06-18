@@ -1,5 +1,5 @@
 <template>
-    <div class="mainContent blogCardContainer" v-motion-slide-top>
+    <div class="mainContent blogCardContainer">
         <p class="head">About</p>
         <div class="secondContent">
             <md-editor
@@ -86,11 +86,13 @@ mqList.addEventListener('change', (event) => {
     font-size: 35px;
     text-align: center;
     font-weight: 400;
+    margin-bottom: 10px;
 }
 
 .secondContent {
     display: flex;
     flex-direction: column;
+    padding: 0 10px;
 }
 
 img {

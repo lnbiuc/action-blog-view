@@ -1,5 +1,5 @@
 <template>
-    <div class="mainContent" v-motion-slide-top>
+    <div class="mainContent" >
         <p class="title">Friends</p>
         <div class="content">
             <div class="card" @click="goto(f.indexUrl)" v-for="f in friends" :key="f.id">

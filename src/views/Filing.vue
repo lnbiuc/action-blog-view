@@ -1,5 +1,5 @@
 <template>
-    <div class="mainContent" v-motion-slide-top>
+    <div class="mainContent" >
         <p class="head">Category</p>
         <div v-for="filing in filings" :key="filing.filingId">
             <div class="oneFiling">

@@ -1,5 +1,5 @@
 <template>
-    <div class="mainContent" v-motion-slide-top>
+    <div class="mainContent" >
         <div class="head">Search</div>
         <div class="searchGroup">
             <div class="t-demo-tabs">
