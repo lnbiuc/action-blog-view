@@ -172,3 +172,10 @@ export async function getFriendLink() {
         method: 'GET',
     });
 }
+
+export async function getAiSum(articleId) {
+    return axios({
+        url: './ai/get/' + articleId,
+        method: 'GET'
+    })
+}
